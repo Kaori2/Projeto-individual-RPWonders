@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPWonders</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="content">
+            <img width="150px" height="78px" src="../imgs/Screenshot 2023-04-20 185941.png" alt="" />
+        </div>
+        <div class="navBar">
+            <a href=" ">
+                <li><img width="30px" height="30px" src="../imgs/address-icon-19.png" alt="" />
+                </li>
+            </a>
+            <li><a href=" ">Acessar</a></li>
+
+            <div class="dropdown">
+                <button class="mainmenubtn" onclick="mostrarmenu()"><img src='../imgs/269dd16fa1f5ff51accd09e7e1602267.png' height="30px"
+                        width="30px" /></button>
+                <div class="dropdown-child" id="child_dropdown">
+                    <a href=" ">Analytics & Trivia</a>
+                    <a href="contato.html">Contato</a>
+                    <a href="Cadastro.html#entraraq">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="banner">
+        <div class="container_text">
+            <h1>O que é um roleplay?</h1>
+            <span> Lorem ipsum dolor sit amet. Ut velit laboriosam est cumque sint est sunt expedita. <br />
+            Lorem ipsum dolor sit amet. Ut velit laboriosam est cumque sint est sunt expedita. Lorem ipsum dolor sit
+            amet.<br /> 
+            Ut velit laboriosam est cumque sint est sunt expedita.
+            </span>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            Copyright © RPWonders | Todos os direitos reservado.
+        </p>
+    </footer>
+    <!-- Fim do Footer-->
+</body>
+
+</html>
+
+<script>
+    var exibir_menu = false
+
+    function mostrarmenu(){
+        if (exibir_menu == true){
+            exibir_menu = false 
+            child_dropdown.style.display = 'none'
+        }else {
+            exibir_menu = true
+            child_dropdown.style.display = 'block'
+        }
+
+
+         
+    }
+</script>

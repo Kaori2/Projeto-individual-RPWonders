@@ -1,0 +1,283 @@
+/* Css Banner */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    height: 80px;
+    background-color: #000000;
+    border-bottom: 2px solid white;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    width: 60%;
+    margin-left: 95px;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    justify-content: space-evenly;
+}
+
+.navBar {
+    width: 300px;
+    color: #ffffff;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-right: 100px;
+    justify-content: space-evenly;
+}
+
+.bar {
+    display: flex;
+    margin: 15px;
+}
+
+.mainmenubtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 5px;
+    border-radius: none;
+
+}
+
+.mainmenubtn a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+
+}
+
+.mainmenubtn:hover {
+    background-color: transparent;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    z-index: 999;
+
+}
+
+.dropdown-child {
+    margin-top: 18px;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    min-width: 50px;
+    border: #939393 solid 2px;
+    position: absolute;
+    left: -100%;
+    top: 100%;
+}
+
+.dropdown a {
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+}
+
+.dropdown:hover .dropdown-child {
+    display: block;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 0;
+}
+
+/* FIM dropdown*/
+
+.menuposition {
+    position: absolute;
+    top: 0%;
+    left: 83%;
+    display: flex;
+    flex-direction: row;
+}
+
+.social1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.banner2 {
+    display: flex;
+    margin: 50px;
+    margin-left: 100px;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    justify-content: space-between;
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+}
+
+.banner {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    width: 900px;
+    max-width: 100%;
+    min-height: 450px;
+    margin-left: 30px;
+    margin-right: 70px;
+    margin-top: 25px;
+    justify-content: space-between;
+}
+
+.container_text{
+    background-image: url(../imgs/contacts.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    display: flex;
+    border-top-right-radius:10px ;
+    border-top-left-radius:10px ;
+    width: 1000px;
+    max-width: 120%;
+    max-height: 300px;
+    z-index: 1;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    max-width: 100%;
+    min-height: 250px;
+    margin-top: 170px;
+}
+.box{
+    display: flex;
+    flex-direction:column ;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 240px;
+    max-width: 100%;
+    min-height: 100px;
+    align-items: center;
+    /* margin-left: 30px;
+    margin-right: 70px;
+    margin-top: 25px; */
+    justify-content: center;
+    z-index: 999;
+    font-size: 15px;
+}
+.box span {
+
+    align-items: baseline;
+    padding: 30px 30px;
+}
+.box img {
+    margin-top: 50px;
+    width: 150px;
+    height: 110px;
+}
+
+#imgs1{
+    margin-top: 50px;
+    width: 120px;
+    height: 120px;
+}
+#imgs3{
+    margin-top: 50px;
+    width: 115px;
+    height: 115px;
+}
+
+a {
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 50px;
+    align-self: center;
+}
+
+.cont span {
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.div_img img {
+    margin-left: 200px;
+    width: 500px;
+    height: 400px;
+    margin-top: 100px;
+}
+
+.img_contato img {
+    margin-left: 5px;
+    width: 500px;
+    height: 400px;
+}
+
+.container_text_banner p {
+    margin-left: 80px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    width: 500px;
+    font-weight: 500;
+}
+
+.container_text_banner span {
+    margin-left: 80px;
+    font-size: 45px;
+    color: rgb(0, 0, 0);
+    width: 280px;
+    font-weight: 600;
+}
+
+footer {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+}
+
+footer p {
+    margin: 20px 0;
+}
+
+/* FIM do fale Conosco */
