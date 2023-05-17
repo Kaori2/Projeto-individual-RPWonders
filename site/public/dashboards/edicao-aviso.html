@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaTech | Página Inicial</title>
+
+    <link rel="stylesheet" href="mural.css">
+    <link rel="stylesheet" href="../css1/stylemudal.css">
+    <script src="../js/funcoes.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="validarSessao(), listarInfosDeUm()" style="background-color: #161618;">
+    <!-- <body onload="validarSessao()"> -->
+
+    <div class="janela">
+
+
+        <div class="header-left">
+
+            <h1>RPWonders</h1>
+
+            <div class="perfil">
+                <a href="cards.html"><img width="80px" height="80px" src="../assets/imgs/profile-icon-white-22.jpg" alt=""></a>
+            </div>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="homepage.html">
+                    <img width="50px" height="50px" src="../assets/imgs/address-icon-19.png" alt="" />
+                </a>
+            </div>
+
+            <div class="hello">
+                <a href="mural.html">Personagens</a>
+            </div>
+
+            <div class="btn-logout">
+                <a href="../index.html"><h3>Sair</h3></a>
+            </div>
+
+        </div>
+
+        <div class="dash-right">
+
+            <div class="avisos2">
+                <div class="container2">
+                    <h1>Editar seu personagem</h1>
+                    <div class="div_form2">
+                        <label>
+                            ID:
+                            <br/>
+                            <input id="input_id" style="color: rgb(196, 196, 196)"><br/><br/>
+                        </label>
+                        <label>
+                            Autor:
+                            <br/>
+                            <input id="input_nome"style="color: rgb(196, 196, 196)"><br/><br/>
+                        </label>
+                        <label>
+                            Nome do personagem:
+                            <br/>
+                            <input id="input_titulo"style="color: rgb(196, 196, 196)"><br/><br/>
+                        </label>
+                        <br/>
+                        <label>
+                            Descrição do personagem:
+                            <br/>
+                            <textarea id="textarea_descricao"></textarea><br/><br/>
+                        </label>
+                        <br>
+                        <button onclick="editar()">Editar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function listarInfosDeUm() {
+        console.log("Criar função de trazer informações de post escolhido");
+    }
+
+    function editar() {
+        fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                descricao: textarea_descricao.value
+            })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "mural.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+</script>

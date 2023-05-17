@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPWonders</title>
+    <link rel="stylesheet" href="../css1/analistics.css">
+    <script src="../js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="content">
+            <img width="150px" height="78px" src="../assets/imgs/Screenshot 2023-04-20 185941.png" alt="">
+        </div>
+        <div class="navBar">
+            <a href="homepage.html">
+                <li><img width="30px" height="30px" src="../assets/imgs/address-icon-19.png" alt="" />
+                </li>
+            </a>
+            <li><a href="cards.html"><img width="30px" height="30px" src="../assets/imgs/profile-icon-white-22.jpg"
+                        alt=""></a></li>
+
+            <div class="dropdown">
+                <button class="mainmenubtn" onclick="mostrarmenu()"><img
+                        src='../assets/imgs/269dd16fa1f5ff51accd09e7e1602267.png' height="30px" width="30px" /></button>
+                <div class="dropdown-child" id="child_dropdown">
+                    <a href=" ">Analytics & Trivia</a>
+                    <a href="contato2.html">Contato</a>
+                    <a href="../index.html">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="social">
+
+        <div class="KAORI_MAIN_CARD2 kaori_border_card">
+
+            <h2>COMEÇA ROLEPLAY ESTUDANDO</h2>
+
+
+            <div class="KAORI_MAIN_CARD kaori_border_card">
+                <h3 class="kaori_h3">Nome social:</h3>
+                <input class="kaori_input" placeholder="Insera aqui seu nome..." id="input_nome"><br><br>
+            </div>
+
+
+            <div class="KAORI_MAIN_CARD kaori_border_card">
+                <h3 class="kaori_h3">Quantidade de dias você pretende passar estudando aqui:</h3>
+                <input class="kaori_input" type="number" placeholder="Insera aqui quantidade de tempo..."
+                    id="tempo_alcansar"><br><br>
+            </div>
+
+            <div class="KAORI_MAIN_CARD kaori_border_card">
+                <h3 class="kaori_h3">Quantas horas por dia:</h3>
+                <input class="kaori_input" type="number" placeholder="Insera aqui quantas horas..."
+                    id="horas_por_dia"><br><br>
+            </div>
+
+            <button class="kaori_button" onclick="calcular()">
+                CALCULAR
+            </button>
+
+        </div>
+
+        <div class="banner">
+            <div class="resposta_banner" id="div_message">
+
+            </div>
+            <div class="speech" id="div_speech">
+            </div>
+        </div>
+
+    </div>
+    <div class="quiz">
+        <div class="quiz_pic">
+            <img class="quiz_pic" src="https://cdn.icon-icons.com/icons2/3374/PNG/512/down_circle_arrow_icon_211492.png"
+                alt="">
+        </div>
+    </div>
+    <div class="quizes">
+        <div class="row_of_topics">
+            <h1 id="title">ANSWER THE QUESTIONS BELOW</h1>
+            <div class="div_1" id="q_1">
+                RPW stands for:
+                <div class="fotos1">
+                    <img src="../assets/imgs/rpw.jpeg" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perA1" name="radio_persona" /> Roleplay Pop World
+                    <input type="radio" id="perA2" name="radio_persona" /> Role Play World
+                    <input type="radio" id="perA3" name="radio_persona" /> Role Person World
+                    <input type="radio" id="perA4" name="radio_persona" /> Rule People Wonders
+                </div>
+            </div>
+            <div class="div_1" id="q_2">
+                What is the golden rule in RPW:
+                <div class="fotos1">
+                    <img src="../assets/imgs/golden rule.jpg" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perB1" name="radio_persona" /> Hide your identity at all
+                    <input type="radio" id="perB2" name="radio_persona" /> Respect other roleplayers
+                    cost
+                    <input type="radio" id="perB3" name="radio_persona" /> Se dedicar no seu personagem
+                    <input type="radio" id="perB4" name="radio_persona" /> Falar sobre seu vida real
+                </div>
+            </div>
+            <div class="div_1" id="q_3">
+                TBRPG stands for:
+                <div class="fotos1">
+                    <img src="../assets/imgs/tbrpg.jpg" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perC1" name="radio_persona" /> Text-Based Roleplaying Game
+                    <input type="radio" id="perC2" name="radio_persona" /> Text-Base Role Play
+                    <input type="radio" id="perC3" name="radio_persona" /> Text Role Person World Game
+                    <input type="radio" id="perC4" name="radio_persona" /> Text Type Based Roleplay Game
+                </div>
+            </div>
+            <div class="div_1" id="q_4">
+                Canon roleplaying is:
+                <div class="fotos1">
+                    <img src="../assets/imgs/canon-quix.jpg" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perE1" name="radio_persona" /> A roleplayer
+                    <input type="radio" id="perE2" name="radio_persona" /> Roleplayer who does roleplaying
+                    as a character who already exist
+                    <input type="radio" id="perE3" name="radio_persona" /> A person who roleplay
+                    <input type="radio" id="perE4" name="radio_persona" /> Type of roleplaying text
+                </div>
+            </div>
+            <div class="div_1" id="q_5">
+                What is the most common type of literate in text-based roleplaying?
+                <div class="fotos1">
+                    <img src="../assets/imgs/oneline.jpg" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perF1" name="radio_persona" /> One-Liner
+                    <input type="radio" id="perF2" name="radio_persona" /> Semi-literate
+                    <input type="radio" id="perF3" name="radio_persona" /> Literate
+                    <input type="radio" id="perF4" name="radio_persona" /> One-literate
+                </div>
+            </div>
+            <div class="div_1" id="q_6">
+                What is the type of literate in text-based roleplaying that allows you to describe in great details
+                about your character's actions?
+                <div class="fotos1">
+                    <img src="../assets/imgs/lit.jpg" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perG1" name="radio_persona" /> One-Liner
+                    <input type="radio" id="perG2" name="radio_persona" /> Semi-literate
+                    <input type="radio" id="perG3" name="radio_persona" /> Literate
+                    <input type="radio" id="perG4" name="radio_persona" /> One-literate
+                </div>
+            </div>
+            <div class="div_1" id="q_7">
+                RPW has unofficial rules that needs to be followed and it has a purpose to:
+                <div class="fotos1">
+                    <img src="../assets/imgs/rpw-rules.jpg" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perH1" name="radio_persona" /> Protect the roleplayers
+                    <input type="radio" id="perH2" name="radio_persona" /> Just some rules
+                    <input type="radio" id="perH3" name="radio_persona" /> Nothing serious
+                    <input type="radio" id="perH4" name="radio_persona" /> To limit the roleplayers
+                </div>
+            </div>
+            <div class="div_1" id="q_8">
+                What is the abbreviation or term for roleplayer in RPW
+                <div class="fotos1">
+                    <img src="../assets/imgs/rper.gif" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perI1" name="radio_persona" /> OC
+                    <input type="radio" id="perI2" name="radio_persona" /> RP
+                    <input type="radio" id="perI3" name="radio_persona" /> RPER
+                    <input type="radio" id="perI4" name="radio_persona" /> RPIER
+                </div>
+            </div>
+            <div class="div_1" id="q_9">
+                What are the benefits of roleplaying
+                <div class="fotos1">
+                    <img src="../assets/imgs/benefits.jpg" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perJ1" name="radio_persona" /> It helps your creativity and
+                    allows you to use your imagination
+                    <input type="radio" id="perJ2" name="radio_persona" /> Be yourself, Be honest and Be
+                    kind
+                    <input type="radio" id="perJ3" name="radio_persona" /> To be able to scam and catfish
+                    people
+                    <input type="radio" id="perJ4" name="radio_persona" /> To escape reality
+                </div>
+            </div>
+            <div class="div_1" id="q_10">
+                RPW is a:
+                <div class="fotos1">
+                    <img src="../assets/imgs/community.jpg" alt="" width="270px" height="180px">
+                </div>
+                <div class="box1">
+                    <input type="radio" id="perK1" name="radio_persona" /> Community for roleplayer that
+                    can be found in varios platforms
+                    <input type="radio" id="perK2" name="radio_persona" /> A world outside reality
+                    <input type="radio" id="perK3" name="radio_persona" /> Another planet but can be
+                    another dimension
+                    <input type="radio" id="perK4" name="radio_persona" /> Community that can only be found
+                    in facebook
+                </div>
+            </div>
+            <div class="div_1" id="q_11">
+                <div class="box_final">
+                    Você concluiu as quizes
+                    <span id="span_mensagem"></span>
+                </div>
+            </div>
+            <div class="btns" id="addbtns">
+                <button onclick="responder()" id="next">Próxima</button>
+                <button onclick="refazer()" id="tryagain">Refazer teste</button>
+            </div>
+        </div>
+    </div>
+    <div class="graphs">
+        <div class="chart_1">
+            <span>If you are a roleplayer what kind of text based roleplaying do you prefer:</span>
+            <div class="chart">
+                <input type="checkbox" id="research1" name="radio_persona" /> Semi-lit
+                <input type="checkbox" id="research2" name="radio_persona" /> One-Liner
+                <input type="checkbox" id="research3" name="radio_persona" /> Literate
+            </div>
+            <div class="sts">
+                <button onclick="">Enviar Rate</button>
+            </div>
+        </div>
+        <div class="size">
+            <canvas id="myChart1"></canvas>
+        </div>
+    </div>
+    <div class="graphs2">
+        <div class="chart_1">
+            <span>What type of text-based roleplayer are you:</span>
+            <div class="chart">
+                <input type="checkbox" id="pesquisa0_1" name="radio_persona" /> Canon
+                <input type="checkbox" id="pesquisa0_2" name="radio_persona" /> OC
+                <input type="checkbox" id="pesquisa0_3" name="radio_persona" /> Au
+                <input type="checkbox" id="pesquisa0_4" name="radio_persona" /> IC/OC Blogging
+            </div>
+            <div class="sts">
+                <button onclick="">Enviar Rate</button>
+            </div>
+        </div>
+        <div class="size">
+            <canvas id="myChart2"></canvas>
+        </div>
+    </div>
+    <div class="satisfaction">
+        <div class="satisfy" id="satisfy_1">
+            <span>Rate this site:</span>
+            <div class="chart_rate">
+                <input type="radio" id="research0.1" name="radio_persona" /> Gostei Muito
+                <input type="radio" id="research0.2" name="radio_persona" /> Gostei
+                <input type="radio" id="research0.3" name="radio_persona" /> Mais ou menos
+                <input type="radio" id="research0.4" name="radio_persona" /> Não gostei
+            </div>
+        </div>
+        <div class="satisfy " id="satisfy_2">
+            <span>Rate this site:</span>
+            <div class="chart_rate">
+                Você gostou do site!
+            </div>
+        </div>
+        <div class="sts">
+            <button onclick="send()">Enviar Rate</button>
+        </div>
+    </div>
+    <footer>
+        <p>
+            Copyright © RPWonders | Todos os direitos reservado.
+        </p>
+    </footer>
+    <!-- Fim do Footer-->
+</body>
+
+</html>
+<script>
+    tryagain.style.display = 'none';
+    var idUsuario = sessionStorage.ID_USUARIO
+    function calcular() {
+        var nome = input_nome.value;
+        var tempo = Number(tempo_alcansar.value);
+        var horas = Number(horas_por_dia.value);
+        var total_de_x_y = tempo * horas
+        var porcentagem = (total_de_x_y * 100) / 48
+        var horas1 = (porcentagem / 100) * 48
+        var dias = (100 / porcentagem) * 7
+        if (porcentagem < 100) {
+            div_message.innerHTML = `${nome}, você têm aproxidamente <b>${porcentagem}%</b> de tempo necessário para estudar todo sobre TBRPG.<br/>
+Sendo assim será necessário mais <b>${horas1} horas</b> para finalizar para dias seguintes, sendo total de <b>${dias} dias</b> `
+        } else {
+            div_message.innerHTML = `${nome}, você têm aproxidamente <b>${porcentagem}%</b> de tempo estudando todo sobre TBRPG.<br/>
+Você alcançou o tempo que você pretende alcançar!! Você estudou <b>${horas1} horas</b>, sendo total de <b>${dias} dias!!</b> <br/>
+PARÁBENS! `
+        }
+        if (porcentagem > 0 && porcentagem < 100) {
+            div_speech.innerHTML = `<br/><b>Vai estudando daqui a pouco vai virar um pro roleplayer</b>`
+        } if (porcentagem >= 100) {
+            div_speech.innerHTML = `<br/><b>Nossa!! você já é um pro roleplayer</b>`
+        }
+    }
+    q_1.style.display = 'block';
+    var contador = 0;
+    var qtdAcertos = 0;
+    var listaAcertos = [];
+    var erro = 0;
+    function responder() {
+
+        // if (perB3.checked == true) {
+        //     qtdAcertos++
+        //     listaAcertos.push(qtdAcertos)
+        // }
+        // if (perC1.checked == true) {
+        //     qtdAcertos++
+        //     listaAcertos.push(qtdAcertos)
+        // }
+        // if (perE2.checked == true) {
+        //     qtdAcertos++
+        //     listaAcertos.push(qtdAcertos)
+        // }
+        // if (perF1.checked == true) {
+        //     qtdAcertos++
+        //     listaAcertos.push(qtdAcertos)
+        // }
+        // if (perG3.checked == true) {
+        //     qtdAcertos++
+        //     listaAcertos.push(qtdAcertos)
+        // }
+        // if (perH1.checked == true) {
+        //     qtdAcertos++
+        //     listaAcertos.push(qtdAcertos)
+        // }
+        // if (perI3.checked == true) {
+        //     qtdAcertos++
+        //     listaAcertos.push(qtdAcertos)
+        // }
+        // if (perJ1.checked == true) {
+        //     qtdAcertos++
+        //     listaAcertos.push(qtdAcertos)
+        // }
+        // if (perK1.checked == true) {
+        //     qtdAcertos++
+        //     listaAcertos.push(qtdAcertos)
+        // }
+
+
+
+        if (contador < 10) {
+            contador++
+            if (contador == 1) {
+                if (perA1 == '' && perA2 == '' && perA3 == '' && perA4 == '') {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perA2.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_1.style.display = 'none';
+                    q_2.style.display = 'block';
+                }
+
+            } else if (contador == 2) {
+                if (perB1 == '' && perB2 == '' && perB3 == '' && perB4 == '') {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perB3.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_2.style.display = 'none';
+                    q_3.style.display = 'block';
+                }
+
+            }
+            else if (contador == 3) {
+                if (perC1 == '' && perC2 == '' && perC3 == '' && perC4 == '') {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perC1.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_3.style.display = 'none';
+                    q_4.style.display = 'block';
+                }
+            }
+            else if (contador == 4) {
+                if (perE1 == '' && perE2 == '' && perE3 == '' && perE4 == '') {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perE2.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_4.style.display = 'none';
+                    q_5.style.display = 'block';
+                }
+
+            } else if (contador == 5) {
+                if (perF1 == '' && perF2 == '' && perF3 == '' && perF4 == '') {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perF1.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_5.style.display = 'none';
+                    q_6.style.display = 'block';
+                }
+            }
+            else if (contador == 6) {
+                if (perG1 == '' && perG2 == '' && perG3 == '' && perG4 == '') {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perG3.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_6.style.display = 'none';
+                    q_7.style.display = 'block';
+                }
+            }
+            else if (contador == 7) {
+                if (perH1 == '' && perH2 == '' && perH3 == '' && perH4 == '') {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perH1.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_7.style.display = 'none';
+                    q_8.style.display = 'block';
+                }
+            }
+            else if (contador == 8) {
+                if (perI1 == '' && perI2 == '' && perI3 == '' && perI4 == '') {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perI3.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_8.style.display = 'none';
+                    q_9.style.display = 'block';
+                }
+
+            }
+            else if (contador == 9) {
+                if (perJ1 == '' && perJ2 == '' && perJ3 == '' && perJ4 == '') {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perJ1.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_9.style.display = 'none';
+                    q_10.style.display = 'block';
+                }
+            }
+            else if (contador == 10) {
+
+                q_10.style.display = 'none';
+                q_11.style.display = 'block';
+                span_mensagem.innerHTML = `Você tirou ${qtdAcertos} pontos!!! PARÁBENS`
+                next.style.display = 'none';
+                tryagain.style.display = 'block';
+
+                //     if (perK1 == '' && perK2 == '' && perK3 == '' && perK4 == '') {
+                //         alert(`Precisa responder!`)
+                //         contador--
+                //     } else {
+                //         if (perK1.checked == true) {
+                //             qtdAcertos++
+                //             listaAcertos.push(qtdAcertos)
+                //         }
+                //         q_9.style.display = 'none';
+                //         q_10.style.display = 'block';
+                //     }
+                // }
+                // else if (contador == 10) {
+                //     q_10.style.display = 'none';
+                //     q_11.style.display = 'block';
+                //     span_mensagem.innerHTML = `Você tirou ${erro} pontos!!! PARÁBENS`
+            }
+
+        }
+    }
+    function refazer() {
+        q_11.style.display = 'none';
+        q_1.style.display = 'block';
+        next.style.display = 'block';
+        tryagain.style.display = 'none';
+        contador = 0
+    }
+    // function tryagain() {
+    //     q_1.style.display = 'block';
+    //     q_2.style.display = 'none';
+    //     q_3.style.display = 'none';
+    //     q_4.style.display = 'none';
+    //     q_5.style.display = 'none';
+    //     q_6.style.display = 'none';
+    //     q_7.style.display = 'none';
+    //     q_8.style.display = 'none';
+    //     q_9.style.display = 'none';
+    //     q_10.style.display = 'none';
+    //     next.style.display = 'block';
+    // }
+    // function termina() {
+    //     if (contador == 10) {
+    //         q_10.style.display = 'none';
+    //         q_11.style.display = 'block';
+    //         span_mensagem.innerHTML = `Você tirou ${erro} pontos!!! PARÁBENS`
+
+    //         fetch("/usuarios/cadastrar", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             },
+
+    //             body: JSON.stringify({
+    //                 // crie um atributo que recebe o valor recuperado aqui
+    //                 // Agora vá para o arquivo routes/usuario.js
+    //                 acertoServer: qtdAcertos,
+    //                 idUsuarioServer: idUsuario
+    //             })
+    //         }).then(function (resposta) {
+
+    //             console.log("resposta: ", resposta);
+
+    //             if (resposta.ok) {
+    //                 // cardErro.style.display = "block";
+    //                 alert(`Cadastro realizado com sucesso! Redirecionando para tela de Login...`)
+    //                 // mensagem_erro.innerHTML = `<span style="color: green;">Cadastro realizado com sucesso! Redirecionando para tela de Login...</span>`;
+    //                 login()
+
+    //                 // setTimeout(() => {
+    //                 //     // window.location = "login.html";
+    //                 //     transição()
+    //                 // }, "2000")
+
+    //                 // limparFormulario();
+    //                 // finalizarAguardar();
+    //             } else {
+    //                 throw ("Houve um erro ao tentar realizar o cadastro!");
+    //             }
+    //         }).catch(function (resposta) {
+    //             console.log(`#ERRO: ${resposta}`);
+    //             finalizarAguardar();
+    //         });
+
+    //         return false;
+    //     }
+    // }
+    satisfy_1.style.display = 'block';
+    var counter = 0;
+
+    function send() {
+        counter++
+        if (counter == 1) {
+            satisfy_1.style.display = 'none';
+            satisfy_2.style.display = 'block';
+        }
+    }
+    const chart = new Chart('myChart1', {
+        type: 'bar',
+        data: {
+            labels: ["Kind of text based roleplaying"],
+            datasets: [{
+                label: 'One-Liner',
+                data: [23],
+                backgroundColor: 'rgb(107, 105, 105)',
+                borderColor: 'rgb(107, 105, 105)',
+                borderWidth: 1
+            }, {
+                label: 'Semi-Literate',
+                data: [52],
+                backgroundColor: 'rgb(66, 64, 64)',
+                borderColor: ' rgb(66, 64, 64)',
+                borderWidth: 1
+            }, {
+                label: 'Literate',
+                data: [72],
+                backgroundColor: 'rgb(23, 22, 22)',
+                borderColor: 'rgb(23, 22, 22)',
+                borderWidth: 1
+            }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    const chart2 = new Chart('myChart2', {
+        type: 'bar',
+        data: {
+            labels: ["Type of text-based roleplayer"],
+            datasets: [{
+                label: 'OC',
+                data: [24],
+                backgroundColor: 'rgb(134, 133, 133)',
+                borderColor: 'rgb(134, 133, 133)',
+                borderWidth: 1
+            }, {
+                label: 'Canon',
+                data: [27],
+                backgroundColor: 'rgb(96, 95, 95)',
+                borderColor: 'rgb(96, 95, 95)',
+                borderWidth: 1
+            }, {
+                label: 'AU',
+                data: [22],
+                backgroundColor: 'rgb(56, 55, 55)',
+                borderColor: 'rgb(56, 55, 55)',
+                borderWidth: 1
+            }, {
+                label: 'IC/OC Blogger',
+                data: [29],
+                backgroundColor: 'rgb(0, 0, 0)',
+                borderColor: 'rgb(0, 0, 0)',
+                borderWidth: 1
+            }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

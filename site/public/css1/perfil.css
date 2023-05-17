@@ -1,0 +1,145 @@
+/* Css Banner */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+.header {
+    height: 80px;
+    background-color: #000000;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+.content {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-right: 150px;
+}
+.content img {
+    margin-left: 50px;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    justify-content: space-evenly;
+}
+.social {
+    height: 650px; 
+    width: 100%;
+} 
+.navBar {
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.navBar span{
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.bar {
+    display: flex;
+    margin: 15px;
+}
+.mainmenubtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 5px;
+    border-radius: none;
+
+}
+.mainmenubtn a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+
+}
+.mainmenubtn:hover {
+    background-color: transparent;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80px;
+    z-index: 999;
+}
+.dropdown-child {
+    margin-top: 18px;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    min-width: 150px;
+    border: #939393 solid 2px;
+    position: absolute;
+    left: -10%;
+    top: 100%;
+}
+.dropdown a {
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+}
+.dropdown:hover .dropdown-child {
+    display: block;
+}
+h1 {
+    font-weight: bold;
+    margin: 0;
+}
+
+/* FIM dropdown*/
+
+.menuposition {
+    position: absolute;
+    top: 0%;
+    left: 83%;
+    display: flex;
+    flex-direction: row;
+}
+.banner {
+    width: 100%;
+    height: 400px;
+}
+.widgets{
+    width: 100px;
+    height: 100px;
+    background-color: #000000;
+}
+footer {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+}
+footer p {
+    margin: 20px 0;
+}
+
+/* FIM do fale Conosco */

@@ -1,0 +1,466 @@
+/* Css Banner */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    height: 80px;
+    background-color: #000000;
+    border-bottom: 2px solid white;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    width: 60%;
+    margin-left: 95px;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    justify-content: space-evenly;
+}
+
+.navBar {
+    width: 300px;
+    color: #ffffff;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-right: 100px;
+    justify-content: space-evenly;
+}
+
+.bar {
+    display: flex;
+    margin: 15px;
+}
+
+.mainmenubtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 5px;
+    border-radius: none;
+
+}
+
+.mainmenubtn a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+
+}
+
+.mainmenubtn:hover {
+    background-color: transparent;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 80px;
+    z-index: 999;
+
+}
+
+.dropdown-child {
+    margin-top: 18px;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    min-width: 50px;
+    border: #939393 solid 2px;
+    position: absolute;
+    left: -100%;
+    top: 100%;
+}
+
+.dropdown a {
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+}
+
+.dropdown:hover .dropdown-child {
+    display: block;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 0;
+}
+
+/* FIM dropdown*/
+
+.menuposition {
+    position: absolute;
+    top: 0%;
+    left: 83%;
+    display: flex;
+    flex-direction: row;
+}
+
+.kaori_button {
+    background-color: black;
+    border-color: #ffffff;
+    cursor: pointer;
+    color: #ffffff;
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    margin-top: 5px;
+}
+
+.social {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.quiz {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    background-color: none;
+    justify-content: center;
+}
+
+.quiz_pic {
+    background-color: #ffffff;
+}
+
+.quiz_pic img {
+    margin-top: 30px;
+    width: 110px;
+    height: 100px;
+    border-radius: 10000px;
+    z-index: 0;
+}
+
+.div_1 {
+    display: none;
+}
+
+.kaori_div {
+    text-align: center;
+    text-decoration: rgb(255, 255, 255);
+    padding: 60 x 25;
+    align-items: center;
+}
+
+.kaori_input {
+    width: 300px;
+    height: 30px;
+}
+
+.KAORI_MAIN_CARD {
+    text-align: center;
+    width: 500px;
+    height: fit-content;
+    margin: 10px;
+    margin-left: 20px;
+    background-color: rgb(241, 255, 241);
+    align-items: center;
+    justify-content: center;
+}
+
+.KAORI_MAIN_CARD2 {
+    text-align: center;
+    width: 500px;
+    height: 550px;
+    margin: 40px;
+    margin-left: 70px;
+    background-color: rgb(0, 0, 0);
+    align-items: center;
+    justify-content: center;
+}
+
+.KAORI_MAIN_CARD2 h2 {
+    color: #ffffff;
+}
+
+.right_border {
+    text-align: center;
+    width: 500px;
+    height: fit-content;
+    margin: 10px;
+    background-color: rgb(186, 186, 186);
+    align-items: center;
+    border: 2px solid black;
+    border-top-right-radius: 10px;
+}
+
+.kaori_border_card {
+    border: 3px solid rgb(115, 133, 134);
+}
+
+.kaori_h3 {
+    color: rgb(3, 3, 3);
+    border-radius: 1%;
+    border-color: black;
+}
+
+.banner {
+    width: 90%;
+    height: 700px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.resposta_banner {
+    text-align: center;
+    width: 700px;
+    height: 400px;
+    margin: 10px;
+    margin-top: 45px;
+    font-size: 38px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.speech {
+    text-align: center;
+    width: 700px;
+    height: 120px;
+    margin: 10px;
+    font-size: 25px;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.quizes {
+    width: 100%;
+    height: 600px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+#title {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.row_of_topics {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.row_of_topics span {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.box1 input {
+    margin-left: 30px;
+    margin-bottom: 50px;
+}
+
+.fotos1 {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.box1 {
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.box_final {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 300px;
+}
+
+.pp {
+    color: #ffffff;
+}
+
+.btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.btns button {
+    width: 130px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.graphs {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+}
+
+.graphs2 {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+}
+
+.chart_1 {
+    width: 50%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+    color: #000000;
+}
+
+.chart_1 span {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 40px;
+    /* color: rgb(134, 133, 133); 
+     color: rgb(96, 95, 95); 
+     color: rgb(56, 55, 55); 
+     color: rgb(0, 0, 0);  */
+}
+
+.size {
+    width: 50%;
+    height: 455px;
+    display: flex;
+    flex-direction: row;
+}
+
+.donut2 {
+    background-color: #ff0000;
+    width: 50%;
+}
+
+.chart_2 {
+    width: 50%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #000000;
+}
+
+.chart {
+    color: #000000;
+}
+
+.chart_rate {
+    color: #000000;
+}
+
+
+.chart_1 input {
+    color: #000000;
+    margin-left: 30px;
+    margin-bottom: 50px;
+}
+
+.satisfaction {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.satisfy {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-bottom: 50px;
+    text-align: center;
+    display: none;
+}
+
+.sts {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.sts button {
+    width: 130px;
+    height: 40px;
+    border: 1px solid #080808;
+    border-radius: 30px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.satisfy span {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+footer {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+}
+
+footer p {
+    margin: 20px 0;
+}
+
+/* FIM do fale Conosco */

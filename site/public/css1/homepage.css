@@ -1,0 +1,419 @@
+/* Css Banner */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    height: 80px;
+    background-color: #000000;
+    border-bottom: 2px solid white;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    width: 60%;
+    margin-left: 95px;
+    align-items: center;
+}
+
+.navBar {
+    width: 300px;
+    color: #ffffff;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-right: 100px;
+    justify-content: space-evenly;
+}
+
+.bar {
+    display: flex;
+    margin: 15px;
+}
+
+.mainmenubtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 5px;
+    border-radius: none;
+
+}
+
+.mainmenubtn a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+
+}
+
+/* .mainmenubtn:hover {
+    background-color: transparent;
+} */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 80px;
+    z-index: 999;
+
+}
+
+.dropdown-child {
+    margin-top: 18px;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    min-width: 50px;
+    border: #939393 solid 2px;
+    position: absolute;
+    left: -100%;
+    top: 100%;
+}
+
+.dropdown a {
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+}
+
+/* .dropdown:hover .dropdown-child {
+    display: block;
+} */
+
+/* FIM dropdown*/
+
+.menuposition {
+    position: absolute;
+    top: 0%;
+    left: 83%;
+    display: flex;
+    flex-direction: row;
+}
+
+.banner {
+    background-image: url(../assets/imgs/Screenshot\ 2023-05-05\ 095057.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px;
+    display: flex;
+    width: 100%;
+    height: 500px;
+}
+
+.container_text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 160px;
+    height: 500px;
+    z-index: 1;
+}
+
+.container_text h1 {
+    font-size: 50px;
+    color: #ffffff;
+    display: flex;
+    align-self: center;
+}
+
+.container_text span {
+    font-size: 20px;
+    color: #ffffff;
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    align-self: center;
+}
+
+a {
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+.boxes_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 600px;
+    margin-bottom: 100px;
+}
+
+.boxes_container h1 {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    /* margin-left: 530px; */
+    margin-bottom: 80px;
+}
+
+.row_boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+.boxes {
+    background-color: #ffffff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    display: flex;
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    flex-direction: column;
+}
+.boxes button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: auto;
+    margin-bottom: 10000px;
+    z-index: 0;
+}
+
+.boxes u {
+    font-size: 13px;
+    text-align: center;
+}
+.boxes img {
+    margin-left: 35%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+#img2 {
+    width: 100px;
+    height: 100px;
+}
+
+.boxes p {
+    font-size: 30px;
+}
+.boxes a {
+    margin-left: 39%;
+    font-size: 15px;
+    color: #000000;
+}
+#p1 {
+    margin-left: 40%;
+    margin-bottom: 20px;
+}
+
+#p2 {
+    margin-left: 37%;
+}
+
+#p3 {
+    margin-left: 34%;
+}
+.rpg_main {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 0px;
+    border-radius: none;
+    position: absolute;
+    top: 0%;
+    left: 83%;
+    display: flex;
+    flex-direction: row;
+
+}
+/* .mainmenubtn:hover {
+    background-color: transparent;
+} */
+.droprpg {
+    position: relative;
+    display: inline-block;
+    margin-left: 76px;
+    width: 50px;
+    z-index: 0;
+
+}
+
+.dropdown_rpg {
+    display: none;
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    height: 150px;
+    border: #939393 solid 2px;
+    position: absolute;
+    right: -450%;
+    margin-top: 80%;
+}
+.dropdown_rpg span{
+    font-size: 15px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.ttrpg_main {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 0px;
+    border-radius: none;
+    position: absolute;
+    top: 10%;
+    left: 83%;
+    display: flex;
+    flex-direction: row;
+
+}
+/* .mainmenubtn:hover {
+    background-color: transparent;
+} */
+.dropttrpg {
+    position: relative;
+    display: inline-block;
+    margin-left: 80px;
+    width: 50px;
+    z-index: 0;
+}
+
+.dropdown_ttrpg {
+    display: none;
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    height: 150px;
+    border: #939393 solid 2px;
+    position: absolute;
+    right: -450%;
+    margin-top: 70%;
+}
+.dropdown_ttrpg span{
+    font-size: 15px;
+    font-weight: 100;
+    text-align: center;
+}
+
+
+/* .dropdown:hover .dropdown-child {
+    display: block;
+} */
+
+/* FIM dropdown*/
+.roleplayer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 440px;
+    justify-content: space-around;
+}
+.text_roleplayer{
+    display: flex;
+    flex-direction: column;
+}
+.text_roleplayer span{
+    margin-top: 100px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.picture_roleplayer img{
+    width: 500px;
+    margin-top: 50px;
+    height:300px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.rp_good{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 700px;
+} 
+.rp_good span {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 450px;
+    margin-bottom: 50px;
+}
+.rp_good_text{
+    background-color: #ffffff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    display: flex;
+    width: 1200px;
+    height: 400px;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 165px;
+}
+.rp_img_good {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    text-align: center;
+}
+.rp_img_good p{
+    margin-left: 10px;
+    margin-right: 20px;
+    font-size: 18px;
+    margin-top: 65px;
+}
+.rp_img_good img{
+    width: 500px;
+    height: 300px;
+    margin-right: 20px;
+}
+.references{
+    width: 100%;
+    height: 380px;  
+}
+.references span {
+   margin-left: 100px;
+}
+.references p{
+    margin-left: 100px;
+}
+
+footer {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+}
+
+footer p {
+    margin: 20px 0;
+}
+
+/* FIM do fale Conosco */
