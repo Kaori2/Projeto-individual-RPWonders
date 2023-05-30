@@ -13,15 +13,15 @@
 <body>
     <div class="header">
         <div class="content">
-            <img width="150px" height="78px" src="../assets/imgs/Screenshot 2023-04-20 185941.png" alt="">
+            <img width="150px" height="50px" src="../assets/imgs/Final.png" alt="">
         </div>
         <div class="navBar">
             <a href="homepage.html">
                 <li><img width="30px" height="30px" src="../assets/imgs/address-icon-19.png" alt="" />
                 </li>
             </a>
-            <li><a href="cards.html"><img width="30px" height="30px"
-                        src="../assets/imgs/profile-icon-white-22.jpg" alt=""></a></li>
+            <li><a href="cards.html"><img width="30px" height="30px" src="../assets/imgs/profile-icon-white-22.jpg"
+                        alt=""></a></li>
 
             <div class="dropdown">
                 <button class="mainmenubtn" onclick="mostrarmenu()"><img
@@ -38,36 +38,49 @@
     <!-- Fim do banner -->
 
     <!-- Começo do Social -->
-    <div class="social">
-        <div class="cont">
-            <span>Fale conosco</span>
-            <div class="img_contato"><img
-                    src="../assets/imgs/people-with-laptop-computer-icon-in-flat-style-pc-user-check-mark-illustration-on-white-isolated-background-office-manager-business-concept-vector.webp"
-                    alt="" /></div>
-        </div>
-        <div class="banner">
-            <div class="container_text">
-                <div class="row">
-                    <div class="box"><img class="imgs1" src="../assets/imgs/vector-telephone-road-sign-icon.webp" alt=""
-                            id="imgs1" /><br />
-                        <span> Lorem ipsum dolor sit amet. Ut velit laboriosam est cumque sint est sunt expedita.
-                        </span>
-                    </div>
-                    <div class="box"><img class="imgs2" src="../assets/imgs/513_email.jpg" alt="" id="imgs2" /><br />
-                        <span> Lorem ipsum dolor sit amet. Ut velit laboriosam est cumque sint est sunt expedita.
-                        </span>
-                    </div>
-                    <div class="box"><img class="imgs3" src="../assets/imgs/adress.png" alt="" id="imgs3" /><br />
-                        <span> Lorem ipsum dolor sit amet. Ut velit laboriosam est cumque sint est sunt expedita.
-                        </span>
-                    </div>
+    <div id="div_wrapper">
+        <div id="div_1">
+            <div class="falaconosco">
+                <h1>Fale Conosco</h1>
+                <form class="form" method="post" action="./email.php">
+                    <input class="campo" name="Nome" placeholder="Nome">
+                    <input class="campo" name="Email" placeholder="Email">
+                    <textarea class="campo" name="Mensagem" placeholder="Digite sua mensagem aqui."></textarea>
+                    <input class='botaofc' type="submit" value="Enviar">
+                </form>
+            </div>
+            <div id="div_2">
+                <span>Contato</span>
+                <div class="box">
+                    <img id="img1"
+                        src="https://www.ffcpeoria.com/wp-content/uploads/2016/12/hero-address-icon-white-1.png" alt=""
+                        width="50px" height="50px">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloribus.</p>
                 </div>
-
+                <div class="box">
+                    <img id="img2"
+                        src="https://www.pngkit.com/png/full/197-1978386_email-marketing-icon-white-marketing-icon-png.png"
+                        alt="" width="40px" height="40px">
+                    <p>support@rpwonders.atlassian.net <br />
+                        ccubes32@gmail.com
+                    </p>
+                </div>
+                <div class="box">
+                    <img id="img3"
+                        src="https://www.nicepng.com/png/full/177-1779357_got-a-question-call-1-877-858-white.png"
+                        alt="" width="35px" height="35px">
+                    <p>(11) 96614-8096</p>
+                </div>
+                <div class="box">
+                    <img id="img4"
+                        src="https://www.seekpng.com/png/full/828-8288325_atencin-al-usuario-call-center-icon-white.png"
+                        alt="" width="40px" height="40px">
+                    <a href="https://rpwonders.atlassian.net/servicedesk/customer/portal/1"><p>Help Center</p ></a>
+                </div>
             </div>
         </div>
-
-
     </div>
+
     <footer>
         <p>
             Copyright © RPWonders | Todos os direitos reservado.

@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/imgs/Final.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Página Inicial</title>
+    <title> RPWonders</title>
 
     <link rel="stylesheet" href="mural.css">
     <link rel="stylesheet" href="../css1/stylemudal.css">
@@ -47,7 +47,9 @@
             </div>
 
             <div class="btn-logout">
-                <a href="../index.html"><h3>Sair</h3></a>
+                <a href="../index.html">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/OOjs_UI_icon_logOut-ltr-invert.svg/1024px-OOjs_UI_icon_logOut-ltr-invert.svg.png" alt="" width="50px" height="40px">
+                </a>
             </div>
 
         </div>
@@ -93,10 +95,86 @@
 
 <script>
     function listarInfosDeUm() {
-        console.log("Criar função de trazer informações de post escolhido");
+        // console.log("Criar função de trazer informações de post escolhido");
+        var idUsuario = sessionStorage.ID_USUARIO;
+        fetch(`/avisos/listarPersonagem/${idUsuario}`)
+            .then(resposta => {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    feed_container.innerHTML = "";
+                    // for (let i = 1; i < resposta.length; i++) {
+                    //     var publicacao = resposta[i];
+                        
+                    //     // criando e manipulando elementos do HTML via JavaScript
+                    //     var divPublicacao = document.createElement("div");
+                    //     var spanID = document.createElement("span");
+                    //     var spanTitulo = document.createElement("span");
+                    //     var spanNome = document.createElement("span");
+                    //     var divDescricao = document.createElement("div");
+                    //     var divButtons = document.createElement("div");
+                    //     var btnEditar = document.createElement("button");
+                    //     var btnDeletar = document.createElement("button");
+
+
+                    //     spanID.innerHTML = "Personagem <b>" + i + "</b>";
+                    //     spanNome.innerHTML = "Autor: <b>" + sessionStorage.NOME_USUARIO + "</b>";
+                    //     spanTitulo.innerHTML = "Nome: <b>" + publicacao.nomePersona + "</b>";
+                    //     divDescricao.innerHTML = "Descrição: <b>" + publicacao.descPersona + "</b>";
+                    //     btnEditar.innerHTML = "Editar";
+                    //     btnDeletar.innerHTML = "Deletar";
+
+                    //     divPublicacao.className = "publicacao";
+                    //     spanTitulo.id = "inputNumero" + publicacao.idPersonagem;
+                    //     spanNome.className = "publicacao-nome";
+                    //     spanTitulo.className = "publicacao-titulo";
+                    //     divDescricao.className = "publicacao-descricao";
+
+                    //     divButtons.className = "div-buttons"
+
+                    //     btnEditar.className = "publicacao-btn-editar"
+                    //     btnEditar.id = "btnEditar" + publicacao.idPersonagem;
+                    //     btnEditar.setAttribute("onclick", `editar(${publicacao.idPersonagem})`);
+
+                    //     btnDeletar.className = "publicacao-btn-editar"
+                    //     btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                    //     btnDeletar.setAttribute("onclick", `deletar(${publicacao.idPersonagem})`);
+
+                    //     divPublicacao.appendChild(spanID);
+                    //     divPublicacao.appendChild(spanNome);
+                    //     divPublicacao.appendChild(spanTitulo);
+                    //     divPublicacao.appendChild(divDescricao);
+                    //     divPublicacao.appendChild(divButtons);
+                    //     divButtons.appendChild(btnEditar);
+                    //     divButtons.appendChild(btnDeletar);
+                    //     feed.appendChild(divPublicacao);
+                    // }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
     }
 
     function editar() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+        var descricao = textarea_descricao.value;
+        
         fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
             method: "PUT",
             headers: {

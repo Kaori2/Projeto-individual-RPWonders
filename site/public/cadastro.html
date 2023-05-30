@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../assets/imgs/Final.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rpw - Acessar</title>
+    <title>RPWonders | Acessar</title>
 
     <link rel="stylesheet" href="css1/styleCadastro.css">
     <link rel="stylesheet" href="css1/rpwUser1st.css">
@@ -16,7 +17,7 @@
 <body>
     <div class="header">
         <div class="content">
-            <img width="150px" height="78px" src="assets/imgs/Screenshot 2023-04-20 185941.png" alt="">
+            <img width="150px" height="50px" src="assets/imgs/Final.png" alt="">
         </div>
         <div class="navBar">
             <li><a href="index.html">  <img src="assets/imgs/address-icon-19.png" alt="" style="width: 30px; margin-top: 5px;"/>  </a></li>
@@ -32,8 +33,8 @@
             <div class="form">
                 <h1>Criar Conta Aqui</h1>
                 <span>use seu email social</span>
-                <input type="text" placeholder="Nome" id="nome_input" />
-                <input placeholder="Email" id="email_input" />
+                <input type="text" placeholder="Nome social" id="nome_input" />
+                <input placeholder="Email social" id="email_input" />
                 <input type="password" placeholder="Senha" id="senha_input" />
                 <input type="password" placeholder="Confirmação de senha" id="confirmacao_senha_input" />
                 <div id="aguardar"></div>
@@ -49,7 +50,7 @@
                 <div class="inps">
                     <h1>Login Aqui</h1>
                 </div>
-                <input type="email" placeholder="Email" id="email_input_login" />
+                <input type="email" placeholder="Email social" id="email_input_login" />
                 <input type="password" placeholder="Senha" id="senha_input_login" />
                 <a href="#">Esqueceu sua senha?</a>
                 <div id="aguardar"></div>
@@ -199,7 +200,7 @@
     // Função de login
     function entrar() {
         // aguardar();
-
+        // var nivel = 0;
         var emailVar = email_input_login.value;
         var senhaVar = senha_input_login.value;
 
@@ -212,6 +213,7 @@
         }
         else {
             setInterval(5000)
+            // nivel++
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -224,6 +226,7 @@
             },
             body: JSON.stringify({
                 emailServer: emailVar,
+                // nivelServer: nivel,
                 senhaServer: senhaVar,
 
             })

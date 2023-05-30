@@ -60,6 +60,7 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: auto;
     padding: 0 50px;
     height: 100%;
     text-align: center;

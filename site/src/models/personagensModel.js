@@ -1,21 +1,63 @@
 var database = require("../database/config")
 
 
-function listarPersona() {
+// function pontos() {
+//     var instrucao = `
+//         SELECT * FROM pontos where fkUsuario = '${idUsuario}';
+//     `;
+//     console.log("Executando a instrução SQL: \n" + instrucao);
+//     return database.executar(instrucao);
+// }
+
+function pontos(idUsuario) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pontos()");
     var instrucao = `
-        SELECT * FROM personagem where fkUsuario = '${idUsuario}' and ROWNUM <= 5;
+    select sum(qtdAcertos) from pontos where fkUser = ${idUsuario};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function terminar(acertos, idUsuario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarpersona():",nomePersona, descPersona);
-    
+function responder(acertos, idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function responder():", acertos, idUsuario);
+
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO user_resposta (qtdAcertos, fkUsuario) VALUES ('${acertos}', ${idUsuario});
+        INSERT INTO pontos (qtdAcertos, fkUser) VALUES ('${acertos}', ${idUsuario});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function send_type(oneliner, semilit, lit, idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function send_type():", oneliner, semilit, lit, idUsuario);
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO tipo_rp_text ( oneliner, semi, lit, fkUsers) VALUES ('${oneliner}', '${semilit}', '${lit}', ${idUsuario});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function send_cara(oc, canon, au, blogger, idUsuario ) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function send_type():", oc, canon, au, blogger, idUsuario);
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO tipo_persona ( oc, canon, au, ic_oc_blogger, fkAdmin ) VALUES ('${oc}', '${canon}', '${au}', '${blogger}', ${idUsuario});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function rate( rating, idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function rate():", rating, idUsuario );
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO satisfacao (avalicao, fkSatisfacao) VALUES ('${rating}', '${idUsuario}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -41,7 +83,10 @@ function listarPorUsuario(idUsuario) {
     return database.executar(instrucao);
 }
 module.exports = {
-    terminar,
-    listarPersona,
+    send_cara,
+    responder,
+    rate,
+    send_type,
+    pontos,
     listarPorUsuario
 };

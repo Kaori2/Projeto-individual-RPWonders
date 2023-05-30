@@ -73,7 +73,7 @@ function cadastrarpersona(nomePersona, descPersona, idUsuario) {
 function editar(novaDescricao, idPersonagem) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ", novaDescricao, idPersonagem);
     var instrucao = `
-        UPDATE personagem SET descPersona = '${novaDescricao}' WHERE id = ${idPersonagem};
+        UPDATE personagem SET descPersona = '${novaDescricao}' WHERE idPersonagem = ${idPersonagem};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -87,9 +87,9 @@ function publicar(titulo, descricao, idUsuario) {
     return database.executar(instrucao);
 }
 function deletar(idPersonagem) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", idAviso);
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", idPersonagem);
     var instrucao = `
-        DELETE FROM personagem WHERE id = ${idPersonagem};
+        DELETE FROM personagem WHERE idPersonagem = ${idPersonagem};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

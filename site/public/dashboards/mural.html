@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/imgs/Final.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Avisos</title>
+    <title>RPWonders</title>
 
     <link rel="stylesheet" href="mural.css">
     <link rel="stylesheet" href="../css1/stylemudal.css">
@@ -48,6 +48,7 @@
             <div class="btn-logout">
                 <a href="../index.html"><h3>Sair</h3></a>
             </div>
+            
 
         </div>
 
@@ -207,7 +208,7 @@
 
             if (resposta.ok) {
                 window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
+                window.location = "/dashboards/mural.html"
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
@@ -247,6 +248,7 @@
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
+                        var btnHeart = document.createElement("button");
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
 

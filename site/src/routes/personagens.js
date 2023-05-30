@@ -5,12 +5,21 @@ var personagensController = require("../controllers/personagensController");
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 
-router.post("/terminar", function (req, res) {
-    personagensController.terminar(req, res);
+router.post("/responder", function (req, res) {
+    personagensController.responder(req, res);
 })
-router.get("/listarPersona", function (req, res) {
+router.post("/send_type", function (req, res) {
+    personagensController.send_type(req, res);
+})
+router.post("/send_cara", function (req, res) {
+    personagensController.send_cara(req, res);
+})
+router.post("/rate", function (req, res) {
+    personagensController.rate(req, res);
+})
+router.get("/pontos/:idUsuario", function (req, res) {
     // função a ser chamada quando acessar /carros/listar
-    personagensController.listarPersona(req, res);
+    personagensController.pontos(req, res);
 });
 router.get("/listarPorUsuario", function (req, res) {
     // função a ser chamada quando acessar /carros/listar

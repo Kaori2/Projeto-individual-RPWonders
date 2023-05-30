@@ -69,7 +69,7 @@ function cadastrarpersona(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nomepersona = req.body.nomePersonaServer;
     var desc = req.body.descServer;
-    var idUsuario = req.body.idUsuario;
+    var idUsuario = req.params.idUsuario;
 
     // Faça as validações dos valores
     if (nomepersona == undefined) {
@@ -127,6 +127,8 @@ function publicar(req, res) {
 function editar(req, res) {
     var novaDescricao = req.body.descricao;
     var idPersonagem = req.params.idPersonagem;
+
+    console.log(req.params.idPersonagem);
 
     avisoModel.editar(novaDescricao, idPersonagem)
         .then(

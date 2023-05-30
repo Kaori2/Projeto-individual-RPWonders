@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPWonders</title>
+    <link rel="shortcut icon" href="../assets/imgs/Final.png" type="image/x-icon">
     <link rel="stylesheet" href="../css1/analistics.css">
     <script src="../js/menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="obterDadosGrafico(), catchGrafico()">
     <div class="header">
         <div class="content">
-            <img width="150px" height="78px" src="../assets/imgs/Screenshot 2023-04-20 185941.png" alt="">
+            <img width="150px" height="50px" src="../assets/imgs/Final.png" alt="">
         </div>
         <div class="navBar">
             <a href="homepage.html">
@@ -229,12 +230,12 @@
         <div class="chart_1">
             <span>If you are a roleplayer what kind of text based roleplaying do you prefer:</span>
             <div class="chart">
-                <input type="checkbox" id="research1" name="radio_persona" /> Semi-lit
-                <input type="checkbox" id="research2" name="radio_persona" /> One-Liner
+                <input type="checkbox" id="research1" name="radio_persona" /> One-Liner
+                <input type="checkbox" id="research2" name="radio_persona" /> Semi-lit
                 <input type="checkbox" id="research3" name="radio_persona" /> Literate
             </div>
             <div class="sts">
-                <button onclick="">Enviar Rate</button>
+                <button onclick="send_type()">Enviar Rate</button>
             </div>
         </div>
         <div class="size">
@@ -245,35 +246,35 @@
         <div class="chart_1">
             <span>What type of text-based roleplayer are you:</span>
             <div class="chart">
-                <input type="checkbox" id="pesquisa0_1" name="radio_persona" /> Canon
-                <input type="checkbox" id="pesquisa0_2" name="radio_persona" /> OC
+                <input type="checkbox" id="pesquisa0_1" name="radio_persona" /> OC
+                <input type="checkbox" id="pesquisa0_2" name="radio_persona" /> Canon
                 <input type="checkbox" id="pesquisa0_3" name="radio_persona" /> Au
                 <input type="checkbox" id="pesquisa0_4" name="radio_persona" /> IC/OC Blogging
             </div>
             <div class="sts">
-                <button onclick="">Enviar Rate</button>
+                <button onclick="send_cara()">Enviar Rate</button>
             </div>
         </div>
         <div class="size">
-            <canvas id="myChart2"></canvas>
+            <canvas id="myChart"></canvas>
         </div>
     </div>
     <div class="satisfaction">
         <div class="satisfy" id="satisfy_1">
             <span>Rate this site:</span>
             <div class="chart_rate">
-                <input type="radio" id="research0.1" name="radio_persona" /> Gostei Muito
-                <input type="radio" id="research0.2" name="radio_persona" /> Gostei
-                <input type="radio" id="research0.3" name="radio_persona" /> Mais ou menos
-                <input type="radio" id="research0.4" name="radio_persona" /> Não gostei
+                <input type="radio" id="research0_1" name="radio_persona" /> Gostei Muito
+                <input type="radio" id="research0_2" name="radio_persona" /> Gostei
+                <input type="radio" id="research0_3" name="radio_persona" /> Mais ou menos
+                <input type="radio" id="research0_4" name="radio_persona" /> Não gostei
             </div>
         </div>
-        <div class="satisfy " id="satisfy_2">
+        <!-- <div class="satisfy " id="satisfy_2">
             <span>Rate this site:</span>
             <div class="chart_rate">
                 Você gostou do site!
             </div>
-        </div>
+        </div>  -->
         <div class="sts">
             <button onclick="send()">Enviar Rate</button>
         </div>
@@ -290,6 +291,7 @@
 <script>
     tryagain.style.display = 'none';
     var idUsuario = sessionStorage.ID_USUARIO
+    var acertos = sessionStorage.ACERTOS_USUARIO
     function calcular() {
         var nome = input_nome.value;
         var tempo = Number(tempo_alcansar.value);
@@ -299,11 +301,11 @@
         var horas1 = (porcentagem / 100) * 48
         var dias = (100 / porcentagem) * 7
         if (porcentagem < 100) {
-            div_message.innerHTML = `${nome}, você têm aproxidamente <b>${porcentagem}%</b> de tempo necessário para estudar todo sobre TBRPG.<br/>
-Sendo assim será necessário mais <b>${horas1} horas</b> para finalizar para dias seguintes, sendo total de <b>${dias} dias</b> `
+            div_message.innerHTML = `${nome}, você têm aproxidamente <b>${porcentagem.toFixed()}%</b> de tempo necessário para estudar todo sobre TBRPG.<br/>
+Sendo assim será necessário mais <b>${horas1.toFixed()} horas</b> para finalizar para dias seguintes, sendo total de <b>${dias.toFixed()} dias</b> `
         } else {
-            div_message.innerHTML = `${nome}, você têm aproxidamente <b>${porcentagem}%</b> de tempo estudando todo sobre TBRPG.<br/>
-Você alcançou o tempo que você pretende alcançar!! Você estudou <b>${horas1} horas</b>, sendo total de <b>${dias} dias!!</b> <br/>
+            div_message.innerHTML = `${nome}, você têm aproxidamente <b>${porcentagem.toFixed()}%</b> de tempo estudando todo sobre TBRPG.<br/>
+Você alcançou o tempo que você pretende alcançar!! Você estudou <b>${horas1.toFixed()} horas</b>, sendo total de <b>${dias.toFixed()} dias!!</b> <br/>
 PARÁBENS! `
         }
         if (porcentagem > 0 && porcentagem < 100) {
@@ -316,52 +318,14 @@ PARÁBENS! `
     var contador = 0;
     var qtdAcertos = 0;
     var listaAcertos = [];
-    var erro = 0;
     function responder() {
 
-        // if (perB3.checked == true) {
-        //     qtdAcertos++
-        //     listaAcertos.push(qtdAcertos)
-        // }
-        // if (perC1.checked == true) {
-        //     qtdAcertos++
-        //     listaAcertos.push(qtdAcertos)
-        // }
-        // if (perE2.checked == true) {
-        //     qtdAcertos++
-        //     listaAcertos.push(qtdAcertos)
-        // }
-        // if (perF1.checked == true) {
-        //     qtdAcertos++
-        //     listaAcertos.push(qtdAcertos)
-        // }
-        // if (perG3.checked == true) {
-        //     qtdAcertos++
-        //     listaAcertos.push(qtdAcertos)
-        // }
-        // if (perH1.checked == true) {
-        //     qtdAcertos++
-        //     listaAcertos.push(qtdAcertos)
-        // }
-        // if (perI3.checked == true) {
-        //     qtdAcertos++
-        //     listaAcertos.push(qtdAcertos)
-        // }
-        // if (perJ1.checked == true) {
-        //     qtdAcertos++
-        //     listaAcertos.push(qtdAcertos)
-        // }
-        // if (perK1.checked == true) {
-        //     qtdAcertos++
-        //     listaAcertos.push(qtdAcertos)
-        // }
-
-
-
-        if (contador < 10) {
+        var idUsuario = sessionStorage.ID_USUARIO;
+        var acertos = sessionStorage.ACERTOS_USUARIO;
+        if (contador < 11) {
             contador++
             if (contador == 1) {
-                if (perA1 == '' && perA2 == '' && perA3 == '' && perA4 == '') {
+                if (perA1.checked == false && perA2.checked == false && perA3.checked == false && perA4.checked == false) {
                     alert(`Precisa responder!`)
                     contador--
                 } else {
@@ -374,7 +338,7 @@ PARÁBENS! `
                 }
 
             } else if (contador == 2) {
-                if (perB1 == '' && perB2 == '' && perB3 == '' && perB4 == '') {
+                if (perB1.checked == false && perB2.checked == false && perB3.checked == false && perB4.checked == false) {
                     alert(`Precisa responder!`)
                     contador--
                 } else {
@@ -388,7 +352,7 @@ PARÁBENS! `
 
             }
             else if (contador == 3) {
-                if (perC1 == '' && perC2 == '' && perC3 == '' && perC4 == '') {
+                if (perC1.checked == false && perC2.checked == false && perC3.checked == false && perC4.checked == false) {
                     alert(`Precisa responder!`)
                     contador--
                 } else {
@@ -401,7 +365,7 @@ PARÁBENS! `
                 }
             }
             else if (contador == 4) {
-                if (perE1 == '' && perE2 == '' && perE3 == '' && perE4 == '') {
+                if (perE1.checked == false && perE2.checked == false && perE3.checked == false && perE4.checked == false) {
                     alert(`Precisa responder!`)
                     contador--
                 } else {
@@ -414,7 +378,7 @@ PARÁBENS! `
                 }
 
             } else if (contador == 5) {
-                if (perF1 == '' && perF2 == '' && perF3 == '' && perF4 == '') {
+                if (perF1.checked == false && perF2.checked == false && perF3.checked == false && perF4.checked == false) {
                     alert(`Precisa responder!`)
                     contador--
                 } else {
@@ -427,7 +391,7 @@ PARÁBENS! `
                 }
             }
             else if (contador == 6) {
-                if (perG1 == '' && perG2 == '' && perG3 == '' && perG4 == '') {
+                if (perG1.checked == false && perG2.checked == false && perG3.checked == false && perG4.checked == false) {
                     alert(`Precisa responder!`)
                     contador--
                 } else {
@@ -440,7 +404,7 @@ PARÁBENS! `
                 }
             }
             else if (contador == 7) {
-                if (perH1 == '' && perH2 == '' && perH3 == '' && perH4 == '') {
+                if (perH1.checked == false && perH2.checked == false && perH3.checked == false && perH4.checked == false) {
                     alert(`Precisa responder!`)
                     contador--
                 } else {
@@ -453,7 +417,7 @@ PARÁBENS! `
                 }
             }
             else if (contador == 8) {
-                if (perI1 == '' && perI2 == '' && perI3 == '' && perI4 == '') {
+                if (perI1.checked == false && perI2.checked == false && perI3.checked == false && perI4.checked == false) {
                     alert(`Precisa responder!`)
                     contador--
                 } else {
@@ -467,7 +431,7 @@ PARÁBENS! `
 
             }
             else if (contador == 9) {
-                if (perJ1 == '' && perJ2 == '' && perJ3 == '' && perJ4 == '') {
+                if (perJ1.checked == false && perJ2.checked == false && perJ3.checked == false && perJ4.checked == false) {
                     alert(`Precisa responder!`)
                     contador--
                 } else {
@@ -480,12 +444,52 @@ PARÁBENS! `
                 }
             }
             else if (contador == 10) {
+                if (perK1.checked == false && perK2.checked == false && perK3.checked == false && perK4.checked == false) {
+                    alert(`Precisa responder!`)
+                    contador--
+                } else {
+                    if (perK1.checked == true) {
+                        qtdAcertos++
+                        listaAcertos.push(qtdAcertos)
+                    }
+                    q_10.style.display = 'block';
+                }
+            }
+            else if (contador == 11) {
 
                 q_10.style.display = 'none';
                 q_11.style.display = 'block';
                 span_mensagem.innerHTML = `Você tirou ${qtdAcertos} pontos!!! PARÁBENS`
                 next.style.display = 'none';
                 tryagain.style.display = 'block';
+                fetch("/personagens/responder", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui
+                        // Agora vá para o arquivo routes/usuario.js
+                        acertosServer: qtdAcertos,
+                        idUser: idUsuario
+
+                    })
+                }).then(function (resposta) {
+
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        sessionStorage.setItem("ACERTOS_USUARIO", "acertos");
+                        // alert( `Pontos adicionada com sucesso! Olha no seu perfil para ver o quantidade de pontos você ganhou!`)
+
+                    } else {
+                        throw ("Houve um erro ao tentar adicionar os pontos!");
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+                return false;
 
                 //     if (perK1 == '' && perK2 == '' && perK3 == '' && perK4 == '') {
                 //         alert(`Precisa responder!`)
@@ -506,6 +510,7 @@ PARÁBENS! `
             }
 
         }
+
     }
     function refazer() {
         q_11.style.display = 'none';
@@ -513,148 +518,502 @@ PARÁBENS! `
         next.style.display = 'block';
         tryagain.style.display = 'none';
         contador = 0
+        qtdAcertos = 0
     }
-    // function tryagain() {
-    //     q_1.style.display = 'block';
-    //     q_2.style.display = 'none';
-    //     q_3.style.display = 'none';
-    //     q_4.style.display = 'none';
-    //     q_5.style.display = 'none';
-    //     q_6.style.display = 'none';
-    //     q_7.style.display = 'none';
-    //     q_8.style.display = 'none';
-    //     q_9.style.display = 'none';
-    //     q_10.style.display = 'none';
-    //     next.style.display = 'block';
-    // }
-    // function termina() {
-    //     if (contador == 10) {
-    //         q_10.style.display = 'none';
-    //         q_11.style.display = 'block';
-    //         span_mensagem.innerHTML = `Você tirou ${erro} pontos!!! PARÁBENS`
-
-    //         fetch("/usuarios/cadastrar", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             },
-
-    //             body: JSON.stringify({
-    //                 // crie um atributo que recebe o valor recuperado aqui
-    //                 // Agora vá para o arquivo routes/usuario.js
-    //                 acertoServer: qtdAcertos,
-    //                 idUsuarioServer: idUsuario
-    //             })
-    //         }).then(function (resposta) {
-
-    //             console.log("resposta: ", resposta);
-
-    //             if (resposta.ok) {
-    //                 // cardErro.style.display = "block";
-    //                 alert(`Cadastro realizado com sucesso! Redirecionando para tela de Login...`)
-    //                 // mensagem_erro.innerHTML = `<span style="color: green;">Cadastro realizado com sucesso! Redirecionando para tela de Login...</span>`;
-    //                 login()
-
-    //                 // setTimeout(() => {
-    //                 //     // window.location = "login.html";
-    //                 //     transição()
-    //                 // }, "2000")
-
-    //                 // limparFormulario();
-    //                 // finalizarAguardar();
-    //             } else {
-    //                 throw ("Houve um erro ao tentar realizar o cadastro!");
-    //             }
-    //         }).catch(function (resposta) {
-    //             console.log(`#ERRO: ${resposta}`);
-    //             finalizarAguardar();
-    //         });
-
-    //         return false;
-    //     }
-    // }
     satisfy_1.style.display = 'block';
-    var counter = 0;
-
+    var text = '';
+    var ratings = []
     function send() {
-        counter++
-        if (counter == 1) {
-            satisfy_1.style.display = 'none';
-            satisfy_2.style.display = 'block';
+        var idUsuario = sessionStorage.ID_USUARIO;
+        if (research0_1 == '' && research0_2 == '' && research0_3 == '' && research0_4 == '') {
+            alert(`Precisa fazer rate!`)
+        } else {
+            if (research0_1.checked == true) {
+                text += 'Gostei Muito'
+                ratings.push(text)
+            }
+            else if (research0_2.checked == true) {
+                text += 'Gostei'
+                ratings.push(text)
+            }
+            else if (research0_3.checked == true) {
+                text += 'Mais ou menos'
+                ratings.push(text)
+            }
+            else if (research0_4.checked == true) {
+                text += 'Não gostei'
+                ratings.push(text)
+            }
+            satisfy_1.style.display = 'none'
+            fetch("/personagens/rate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    ratingServer: text,
+                    idUser: idUsuario
+
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                } else {
+                    throw ("Houve um erro ao tentar adicionar os ratings!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
         }
+
     }
-    const chart = new Chart('myChart1', {
-        type: 'bar',
-        data: {
+
+
+
+    function obterDadosGrafico() {
+
+        fetch(`/medidas/persona`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(resposta);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta) {
+
+        let labels = [];
+        let data = resposta[0]
+
+        let dados = {
             labels: ["Kind of text based roleplaying"],
             datasets: [{
-                label: 'One-Liner',
-                data: [23],
+                label: `One-Liner`,
+                data: [data.oneliner],
+                fill: false,
                 backgroundColor: 'rgb(107, 105, 105)',
                 borderColor: 'rgb(107, 105, 105)',
-                borderWidth: 1
+                tension: 0.1
             }, {
-                label: 'Semi-Literate',
-                data: [52],
+                label: `Semi-Literate`,
+                data: [data.semiliner],
+                fill: false,
                 backgroundColor: 'rgb(66, 64, 64)',
                 borderColor: ' rgb(66, 64, 64)',
-                borderWidth: 1
+                tension: 0.1
             }, {
-                label: 'Literate',
-                data: [72],
-                backgroundColor: 'rgb(23, 22, 22)',
+                label: `Literate`,
+                data: [data.lit],
+                fill: false,
+                bbackgroundColor: 'rgb(23, 22, 22)',
                 borderColor: 'rgb(23, 22, 22)',
-                borderWidth: 1
-            }
-            ]
-        },
-        options: {
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+                tension: 0.1
+            }]
+        };
+
+        // console.log('----------------------------------------------')
+        // console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        // console.log(resposta)
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            // console.log(`DADOS DO REGISTRO ` + registro.idTipo_rp_text)
+            // labels.push(registro.idTipo_rp_text);
+            dados.datasets[0].data.push(registro.oneliner);
+            dados.datasets[1].data.push(registro.semi);
+            dados.datasets[2].data.push(registro.lit);
+
         }
-    });
-    const chart2 = new Chart('myChart2', {
-        type: 'bar',
-        data: {
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let myChartP = new Chart(
+            document.getElementById(`myChart1`),
+            config
+        );
+        setTimeout(() => atualizarGrafico( dados, myChartP), 2000);
+
+    }
+
+    function atualizarGrafico(dados, myChartP) {
+
+
+
+        fetch(`/medidas/persona`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    // tirando e colocando valores no gráfico
+                    // dados.labels.shift(); // apagar o primeiro
+                    // dados.labels.push(novoRegistro[0].idTipo_rp_text); // incluir um novo momento
+
+                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                    dados.datasets[0].data.push(novoRegistro[0].oneliner);
+                    dados.datasets[1].data.push(novoRegistro[1].semi);
+                    dados.datasets[2].data.push(novoRegistro[2].lit);
+
+                    myChartP.update();
+                    // }
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChartP), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChartP), 2000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+
+
+
+
+
+
+
+    function catchGrafico() {
+
+        fetch(`/medidas/persona_catch`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotGrafico(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotGrafico(resposta) {
+
+        let labels = [];
+        let data = resposta[0]
+
+        let dados = {
             labels: ["Type of text-based roleplayer"],
             datasets: [{
-                label: 'OC',
-                data: [24],
+                label: `OC`,
+                data: [data.OrgC],
+                fill: false,
                 backgroundColor: 'rgb(134, 133, 133)',
                 borderColor: 'rgb(134, 133, 133)',
-                borderWidth: 1
+                tension: 0.1
             }, {
-                label: 'Canon',
-                data: [27],
+                label: `Canon`,
+                data: [data.Can],
+                fill: false,
                 backgroundColor: 'rgb(96, 95, 95)',
                 borderColor: 'rgb(96, 95, 95)',
-                borderWidth: 1
+                tension: 0.1
             }, {
-                label: 'AU',
-                data: [22],
+                label: `AU`,
+                data: [data.AnU],
+                fill: false,
                 backgroundColor: 'rgb(56, 55, 55)',
                 borderColor: 'rgb(56, 55, 55)',
-                borderWidth: 1
-            }, {
-                label: 'IC/OC Blogger',
-                data: [29],
+                tension: 0.1
+            }
+                , {
+                label: `IC/OC Blogger`,
+                data: [data.Blog],
+                fill: false,
                 backgroundColor: 'rgb(0, 0, 0)',
                 borderColor: 'rgb(0, 0, 0)',
-                borderWidth: 1
+                tension: 0.1
+            }]
+        };
+
+        // console.log('----------------------------------------------')
+        // console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        // console.log(resposta)
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            // console.log(`DADOS DO REGISTRO ` + registro.idTipo_rp_text)
+            // labels.push(registro.idTipo_rp_text);
+            dados.datasets[0].data.push(registro.oc);
+            dados.datasets[1].data.push(registro.canon);
+            dados.datasets[2].data.push(registro.au);
+            dados.datasets[3].data.push(registro.ic_oc_blogger);
+
+        }
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let myChartM = new Chart(
+            document.getElementById(`myChart`),
+            config
+        );
+        setTimeout(() => atualizarPersona( dados, myChartM), 2000);
+    }
+
+    function atualizarPersona(dados, myChartM) {
+
+
+
+        fetch(`/medidas/persona_catch`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    // tirando e colocando valores no gráfico
+                    // dados.labels.shift(); // apagar o primeiro
+                    // dados.labels.push(novoRegistro[0].idTipo_rp_text); // incluir um novo momento
+
+                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                    dados.datasets[0].data.push(novoRegistro[0].oc);
+                    dados.datasets[1].data.push(novoRegistro[1].canon);
+                    dados.datasets[2].data.push(novoRegistro[2].au);
+                    dados.datasets[3].data.push(novoRegistro[3].ic_oc_blogger);
+
+
+                    myChartM.update();
+                    // }
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChartM), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChartM), 2000);
             }
-            ]
-        },
-        options: {
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+    // const chart = new Chart('myChart1', {
+    //     type: 'bar',
+    //     data: {
+    //         labels: ["Kind of text based roleplaying"],
+    //         datasets: [{
+    //             label: 'One-Liner',
+    //             data: [23],
+    //             backgroundColor: 'rgb(107, 105, 105)',
+    //             borderColor: 'rgb(107, 105, 105)',
+    //             borderWidth: 1
+    //         }, {
+    //             label: 'Semi-Literate',
+    //             data: [52],
+    //             backgroundColor: 'rgb(66, 64, 64)',
+    //             borderColor: ' rgb(66, 64, 64)',
+    //             borderWidth: 1
+    //         }, {
+    //             label: 'Literate',
+    //             data: [72],
+    //             backgroundColor: 'rgb(23, 22, 22)',
+    //             borderColor: 'rgb(23, 22, 22)',
+    //             borderWidth: 1
+    //         }
+    //         ]
+    //     },
+    //     options: {
+    //         maintainAspectRatio: false,
+    //         scales: {
+    //             y: {
+    //                 beginAtZero: true
+    //             }
+    //         }
+    //     }
+    // });
+    // const chart2 = new Chart('myChart2', {
+    //     type: 'bar',
+    //     data: {
+    //         labels: ["Type of text-based roleplayer"],
+    //         datasets: [{
+    //             label: 'OC',
+    //             data: [24],
+    //             backgroundColor: 'rgb(134, 133, 133)',
+    //             borderColor: 'rgb(134, 133, 133)',
+    //             borderWidth: 1
+    //         }, {
+    //             label: 'Canon',
+    //             data: [27],
+    //             backgroundColor: 'rgb(96, 95, 95)',
+    //             borderColor: 'rgb(96, 95, 95)',
+    //             borderWidth: 1
+    //         }, {
+    //             label: 'AU',
+    //             data: [22],
+    //             backgroundColor: 'rgb(56, 55, 55)',
+    //             borderColor: 'rgb(56, 55, 55)',
+    //             borderWidth: 1
+    //         }, {
+    //             label: 'IC/OC Blogger',
+    //             data: [29],
+    //             backgroundColor: 'rgb(0, 0, 0)',
+    //             borderColor: 'rgb(0, 0, 0)',
+    //             borderWidth: 1
+    //         }
+    //         ]
+    //     },
+    //     options: {
+    //         maintainAspectRatio: false,
+    //         scales: {
+    //             y: {
+    //                 beginAtZero: true
+    //             }
+    //         }
+    //     }
+    // });
+    var oneliner = 0;
+    var semi = 0;
+    var lit = 0;
+    var one_liner = [];
+    var semi_lit = [];
+    var lit_rate = [];
+    function send_type() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+        if (research1.checked == false && research2.checked == false && research3.checked == false) {
+            alert(`Precisa responder!`)
+            contador--
+        } else {
+            if (research1.checked == true) {
+                oneliner++
+                one_liner.push(oneliner)
+                research1.checked = false
+            }
+            else if (research2.checked == true) {
+                semi++
+                semi_lit.push(semi)
+                research2.checked = false
+            }
+            else if (research3.checked == true) {
+                lit++
+                lit_rate.push(lit)
+                research3.checked = false
             }
         }
-    });
+        fetch("/personagens/send_type", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                oneServer: oneliner,
+                semiServer: semi,
+                litServer: lit,
+                idUser: idUsuario
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // sessionStorage.setItem("ACERTOS_USUARIO", "acertos");
+                // alert( `Pontos adicionada com sucesso! Olha no seu perfil para ver o quantidade de pontos você ganhou!`)
+                
+                // setTimeout(() => obterDadosGrafico(), 2000)
+            } else {
+                throw ("Houve um erro ao tentar adicionar os tipos!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+    var oc = 0;
+    var canon = 0;
+    var au = 0;
+    var blogger = 0;
+    var o_c = [];
+    var ca_non = [];
+    var a_u = [];
+    var ic_oc = [];
+    function send_cara() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+        if (pesquisa0_1.checked == false && pesquisa0_2.checked == false && pesquisa0_3.checked == false && pesquisa0_4.checked == false) {
+            alert(`Precisa responder!`)
+        } else {
+            if (pesquisa0_1.checked == true) {
+                oc++
+                o_c.push(oc)
+                pesquisa0_1.checked = false
+            }
+            else if (pesquisa0_2.checked == true) {
+                canon++
+                ca_non.push(canon)
+                pesquisa0_2.checked = false 
+            }
+            else if (pesquisa0_3.checked == true) {
+                au++
+                a_u.push(au)
+                pesquisa0_3.checked = false 
+            }
+            else if (pesquisa0_4.checked == true) {
+                blogger++
+                ic_oc.push(blogger)
+                pesquisa0_4.checked = false 
+            }
+        }
+        fetch("/personagens/send_cara", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                ocServer: oc,
+                canonServer: canon,
+                auServer: au,
+                bloggerServer: blogger,
+                idUser: idUsuario
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // sessionStorage.setItem("ACERTOS_USUARIO", "acertos");
+                // alert( `Pontos adicionada com sucesso! Olha no seu perfil para ver o quantidade de pontos você ganhou!`)
+
+            } else {
+                throw ("Houve um erro ao tentar adicionar os tipos!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
 </script>

@@ -42,6 +42,7 @@ body {
   height: 100px;
 }
 .container2 h1 {
+  margin-top: 20px;
   color: white;
 }
 .div_form2 button {
@@ -199,7 +200,6 @@ body {
   display: flex;
   text-align: center;
   height: 180px;
-  justify-content: right;
   background-color: #212124;
   font-size: 20px;
 }
