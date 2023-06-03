@@ -19,6 +19,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 0;
+    /* position: fixed; */
 }
 
 .content {
@@ -321,7 +322,7 @@ a {
         flex-direction: column;
         /* vertical-align: top; */
         margin-bottom: 100px;
-        top: -440px;
+        top: -458px;
         color: #ffffff;
         justify-content: center;
         text-align: center;

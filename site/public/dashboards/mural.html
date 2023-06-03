@@ -46,7 +46,9 @@
             </div>
 
             <div class="btn-logout">
-                <a href="../index.html"><h3>Sair</h3></a>
+                <a href="../index.html">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/OOjs_UI_icon_logOut-ltr-invert.svg/1024px-OOjs_UI_icon_logOut-ltr-invert.svg.png" alt="" width="50px" height="40px">
+                </a>
             </div>
             
 
@@ -124,7 +126,7 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                window.alert("Post realizado com sucesso pelo usuario: " + sessionStorage.NOME_USUARIO + "!");
                 window.location = "mural.html";
                 // limparFormulario();
                 // finalizarAguardar();

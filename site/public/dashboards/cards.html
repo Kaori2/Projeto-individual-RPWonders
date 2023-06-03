@@ -19,7 +19,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="updateFeed(), obterDadosGrafico(sessionStorage.ID_USUARIO)">
+<body onload="updateFeed(), obterDadosGrafico(sessionStorage.ID_USUARIO), updateNivel()">
     <!-- onload="validarSessao(), atualizacaoPeriodica()" -->
     <div class="janela">
 
@@ -61,14 +61,14 @@
                     <div class="card">
                         <h1>Nivel</h1>
                         <div class="temperatura">
-                            <p id="temp_aquario_1"></p>
+                            <p id="level"></p>
                         </div>
 
                     </div>
                     <div class="card">
                         <h1>Quantidade de pontos</h1>
                         <div class="temperatura">
-                            <p id="temp_aquario_2"></p>
+                            <p id="points"></p>
                         </div>
 
 
@@ -105,7 +105,32 @@
 
                     resposta.json().then(function (resposta) {
                         console.log("Dados recebidos: ", JSON.stringify(resposta[0]["sum(qtdAcertos)"]));
-                        temp_aquario_2.innerHTML = `Você têm ` + resposta[0]["sum(qtdAcertos)"] + ` pontos`;
+                        points.innerHTML = `Você têm ` + resposta[0]["sum(qtdAcertos)"] + ` pontos`;
+                    });
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta);
+                // finalizarAguardar();
+            });
+    }
+    function updateNivel() {
+        //aguardar();
+        
+        fetch(`/usuarios/nivelamento/${idUsuario}`)
+            .then(resposta => {
+                if (resposta.ok) {
+
+                    if (resposta.status == 204) {
+                        mensagem.innerHTML = "Nenhum resultado encontrado."
+                        feed.appendChild(mensagem);
+                        throw "Nenhum resultado encontrado!!";
+                    }
+
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos: ", JSON.stringify(resposta[0]["nivel"]));
+                        level.innerHTML = `Você está no nivel ` + resposta[0]["nivel"];
                     });
                 } else {
                     throw ('Houve um erro na API!');
@@ -161,11 +186,14 @@ function plotarGrafico(resposta, idUsuario) {
 
     // Criando estrutura para plotar gráfico - labels
     let labels = [];
+    for (var counter = 0 ; counter < resposta.length; counter++){
+labels.push("Tentativa  " + (counter + 1))
+    }
     // Criando estrutura para plotar gráfico - dados
     let dados = {
         labels: labels,
         datasets: [{
-            label: `Tentativa`,
+            label: `Acertos`,
             data: [],
             fill: false,
             backgroundColor: 'rgb(134, 133, 133)',
@@ -177,10 +205,11 @@ function plotarGrafico(resposta, idUsuario) {
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
     console.log(resposta)
-
+// var respond = 0;
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
+        // respond++
         console.log(`DADOS DO REGISTRO ` + registro.idQuiz)
         labels.push(registro.idQuiz);
         dados.datasets[0].data.push(registro.qtdAcertos);
@@ -223,26 +252,6 @@ function atualizarGrafico(idUsuario, dados, myChartP) {
     fetch(`/medidas/tempo-real/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (novoRegistro) {
-
-                // console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                // console.log(`Dados atuais do gráfico:`);
-                // console.log(dados);
-
-                // let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-                // avisoCaptura.innerHTML = ""
-
-
-                // if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                    // console.log("---------------------------------------------------------------")
-                    // console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                    // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                    // console.log("Horário do novo dado capturado:")
-                    // console.log(novoRegistro[0].momento_grafico)
-                    // console.log("Horário do último dado capturado:")
-                    // console.log(dados.labels[dados.labels.length - 1])
-                    // console.log("---------------------------------------------------------------")
-                // } else {
-
 
                     // tirando e colocando valores no gráfico
                     dados.labels.shift(); // apagar o primeiro

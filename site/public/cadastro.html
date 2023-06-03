@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="../assets/imgs/Final.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../public/assets/imgs/Final.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPWonders | Acessar</title>
 
@@ -67,9 +67,8 @@
                     <h1>Olá Cliente</h1>
                     <p>Bem-vindo(a) à nossa área de cadastro! Para criar sua conta e ter acesso a todas as
                         funcionalidades de nossa página, por favor, preencha o formulário abaixo com suas informações
-                        pessoais. Ao criar sua conta, você terá acesso a recursos exclusivos, como personalização de
-                        perfil e gerenciamento de suas configurações. Além disso, nossos recursos de segurança ajudarão
-                        a garantir a privacidade e segurança de suas informações pessoais.</p>
+                        socias. Ao criar sua conta, você terá acesso a recursos exclusivos, como personalização de
+                        perfil e gerenciamento de suas personagens.</p>
                     <button class="stylist ghost" id="signIn" onclick="login()">Login</button>
                 </div>
                 <div class="overlay-panel overlay-right">
@@ -93,12 +92,14 @@
 </html>
 
 <script>
+    
     function cadastrar() {
         // aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
+        var nivelVar = 0;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var senhaConfirmaVar = confirmacao_senha_input.value
@@ -151,7 +152,8 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                nivelServer: nivelVar
             })
         }).then(function (resposta) {
 
@@ -196,13 +198,54 @@
     function cadastro() {
         container.classList.add("right-panel-active");
     }
-   
+    function level(){
+        var nivelVar2 = sessionStorage.NIVEL_USUARIO;
+        var idUsuario = sessionStorage.ID_USUARIO;
+        fetch(`/usuarios/level/${idUsuario}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nivelServer: nivelVar2
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+                alert( `Login realizado com sucesso! Redirecionando para Homepage...`)
+                // mensagem_erro.innerHTML = `<span style="color: green;">Cadastro realizado com sucesso! Redirecionando para tela de Login...</span>`;
+                login()
+
+                // setTimeout(() => {
+                //     // window.location = "login.html";
+                //     transição()
+                // }, "2000")
+
+                // limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+    // var nivel = 0;
     // Função de login
     function entrar() {
         // aguardar();
-        // var nivel = 0;
+        // 
         var emailVar = email_input_login.value;
         var senhaVar = senha_input_login.value;
+        
 
         if (emailVar == "" || senhaVar == "") {
             // cardErro.style.display = "block"
@@ -213,7 +256,7 @@
         }
         else {
             setInterval(5000)
-            // nivel++
+            // nivel++level()
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -242,8 +285,13 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    // sessionStorage.NIVEL_USUARIO = json.nivel;
                     sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.NIVEL_USUARIO = json.nivel+1;
+                    level()
+                    // var nivel = sessionStorage.NIVEL_USUARIO;
+                    // if (nivel == 0) {
+                    //     sessionStorage.NIVEL_USUARIO = 1
+                    // }
 
                     setTimeout(function () {
                         window.location = "dashboards/homepage.html";

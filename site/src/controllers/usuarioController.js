@@ -69,6 +69,7 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var nivel = req.body.nivelServer;
 
 
 
@@ -79,10 +80,12 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    }else if (nivel == undefined) {
+        res.status(400).send("Sua nivel está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha )
+        usuarioModel.cadastrar(nome, email, senha , nivel)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -98,6 +101,41 @@ function cadastrar(req, res) {
                 }
             );
     }
+}
+function level(req, res) {
+    var nivel = req.body.nivelServer;
+    var idUsuario = req.params.idUsuario;
+
+    console.log(req.params.idPersonagem);
+
+    usuarioModel.level(nivel, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+function nivelamento(req, res) {
+    var idUsuario = req.params.idUsuario;
+    usuarioModel.nivelamento(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
 }
 // function cadastrarpersona(req, res) {
 //     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -136,5 +174,7 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    level,
+    nivelamento
 }

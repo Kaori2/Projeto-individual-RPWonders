@@ -18,5 +18,11 @@ router.post("/cadastrar", function (req, res) {
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
-
+router.post("/level/:idUsuario", function (req, res) {
+    usuarioController.level(req, res);
+});
+router.get("/nivelamento/:idUsuario", function (req, res) {
+    // função a ser chamada quando acessar /carros/listar
+    usuarioController.nivelamento(req, res);
+});
 module.exports = router;

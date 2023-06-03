@@ -21,6 +21,14 @@ router.get("/pontos/:idUsuario", function (req, res) {
     // função a ser chamada quando acessar /carros/listar
     personagensController.pontos(req, res);
 });
+router.get("/rateme/:idUsuario", function (req, res) {
+    // função a ser chamada quando acessar /carros/listar
+    personagensController.rateme(req, res);
+});
+router.get("/done/:idUsuario", function (req, res) {
+    // função a ser chamada quando acessar /carros/listar
+    personagensController.done(req, res);
+});
 router.get("/listarPorUsuario", function (req, res) {
     // função a ser chamada quando acessar /carros/listar
     personagensController.listarPorUsuario(req, res);

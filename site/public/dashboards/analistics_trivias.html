@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="obterDadosGrafico(), catchGrafico()">
+<body onload="obterDadosGrafico(), catchGrafico(), updateFeed(), rateme()">
     <div class="header">
         <div class="content">
             <img width="150px" height="50px" src="../assets/imgs/Final.png" alt="">
@@ -259,24 +259,18 @@
             <canvas id="myChart"></canvas>
         </div>
     </div>
-    <div class="satisfaction">
-        <div class="satisfy" id="satisfy_1">
+    <div class="satisfaction" id="style_satisfy">
+        <div class="satisfy"  id="satisfy_1" >
             <span>Rate this site:</span>
             <div class="chart_rate">
                 <input type="radio" id="research0_1" name="radio_persona" /> Gostei Muito
                 <input type="radio" id="research0_2" name="radio_persona" /> Gostei
                 <input type="radio" id="research0_3" name="radio_persona" /> Mais ou menos
                 <input type="radio" id="research0_4" name="radio_persona" /> Não gostei
+                <div class="sts">
+                    <button onclick="send()">Enviar Rate</button>
+                </div>
             </div>
-        </div>
-        <!-- <div class="satisfy " id="satisfy_2">
-            <span>Rate this site:</span>
-            <div class="chart_rate">
-                Você gostou do site!
-            </div>
-        </div>  -->
-        <div class="sts">
-            <button onclick="send()">Enviar Rate</button>
         </div>
     </div>
     <footer>
@@ -289,9 +283,39 @@
 
 </html>
 <script>
+    // window.onload = obterDadosGrafico();
+    // window.onload =  catchGrafico();
+    let proximaAtualizacao;
+    satisfy_1.style.display = 'block';
     tryagain.style.display = 'none';
     var idUsuario = sessionStorage.ID_USUARIO
     var acertos = sessionStorage.ACERTOS_USUARIO
+    function updateFeed() {
+        //aguardar();
+        
+        fetch(`/personagens/done/${idUsuario}`)
+            .then(resposta => {
+                if (resposta.ok) {
+
+                    if (resposta.status == 204) {
+                        mensagem.innerHTML = "Nenhum resultado encontrado."
+                        feed.appendChild(mensagem);
+                        throw "Nenhum resultado encontrado!!";
+                    }
+
+                    resposta.json().then(function (resposta) {
+                        // console.log("Dados recebidos: ", JSON.stringify(resposta));
+                        // satisfy_1.style.display = 'none';
+                    });
+                } else {
+                    satisfy_1.style.display = 'block';
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta);
+                // finalizarAguardar();
+            });
+    }
     function calcular() {
         var nome = input_nome.value;
         var tempo = Number(tempo_alcansar.value);
@@ -299,14 +323,15 @@
         var total_de_x_y = tempo * horas
         var porcentagem = (total_de_x_y * 100) / 48
         var horas1 = (porcentagem / 100) * 48
+        var horas_total = 48 - horas1
         var dias = (100 / porcentagem) * 7
-        if (porcentagem < 100) {
-            div_message.innerHTML = `${nome}, você têm aproxidamente <b>${porcentagem.toFixed()}%</b> de tempo necessário para estudar todo sobre TBRPG.<br/>
-Sendo assim será necessário mais <b>${horas1.toFixed()} horas</b> para finalizar para dias seguintes, sendo total de <b>${dias.toFixed()} dias</b> `
-        } else {
+        if (porcentagem > 99 && horas1 > 47) {
             div_message.innerHTML = `${nome}, você têm aproxidamente <b>${porcentagem.toFixed()}%</b> de tempo estudando todo sobre TBRPG.<br/>
 Você alcançou o tempo que você pretende alcançar!! Você estudou <b>${horas1.toFixed()} horas</b>, sendo total de <b>${dias.toFixed()} dias!!</b> <br/>
 PARÁBENS! `
+        } else {
+            div_message.innerHTML = `${nome}, você têm aproxidamente <b>${porcentagem.toFixed()}%</b> de tempo necessário para estudar todo sobre TBRPG.<br/>
+Sendo assim será necessário mais <b>${horas_total.toFixed()} horas</b> para finalizar para dias seguintes, sendo total de <b>${dias.toFixed()} dias</b> `
         }
         if (porcentagem > 0 && porcentagem < 100) {
             div_speech.innerHTML = `<br/><b>Vai estudando daqui a pouco vai virar um pro roleplayer</b>`
@@ -520,7 +545,7 @@ PARÁBENS! `
         contador = 0
         qtdAcertos = 0
     }
-    satisfy_1.style.display = 'block';
+    
     var text = '';
     var ratings = []
     function send() {
@@ -531,20 +556,24 @@ PARÁBENS! `
             if (research0_1.checked == true) {
                 text += 'Gostei Muito'
                 ratings.push(text)
+                research0_1.checked = false
             }
             else if (research0_2.checked == true) {
                 text += 'Gostei'
                 ratings.push(text)
+                research0_2.checked = false
             }
             else if (research0_3.checked == true) {
                 text += 'Mais ou menos'
                 ratings.push(text)
+                research0_3.checked = false
             }
             else if (research0_4.checked == true) {
                 text += 'Não gostei'
                 ratings.push(text)
-            }
-            satisfy_1.style.display = 'none'
+                research0_4.checked = false
+            } 
+            style_satisfy.style.display = 'none'
             fetch("/personagens/rate", {
                 method: "POST",
                 headers: {
@@ -572,6 +601,34 @@ PARÁBENS! `
             return false;
         }
 
+    }
+
+    function rateme() {
+        //aguardar();
+        console.log("RATE ME")
+        fetch(`/personagens/rateme/${idUsuario}`)
+            .then(resposta => {
+                console.log('Fazendo requisição')
+                if (resposta.ok) { 
+
+                    resposta.json().then(function (resposta) {
+                        console.log(resposta)
+                        console.log("Dados recebidos: ", JSON.stringify(resposta[0]));
+                        var rt = resposta[0].ratings_total;
+                        if (rt > 0){
+                            style_satisfy.style.display = 'none'
+                        } else {
+                            style_satisfy.style.display = 'block'
+                        }
+                        
+                    });
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta);
+                // finalizarAguardar();
+            });
     }
 
 
@@ -634,9 +691,17 @@ PARÁBENS! `
             var registro = resposta[i];
             // console.log(`DADOS DO REGISTRO ` + registro.idTipo_rp_text)
             // labels.push(registro.idTipo_rp_text);
-            dados.datasets[0].data.push(registro.oneliner);
-            dados.datasets[1].data.push(registro.semi);
-            dados.datasets[2].data.push(registro.lit);
+            if (registro) {
+                if (registro.oneliner) {
+                    dados.datasets[0].data.push(registro.oneliner);
+                }
+                if (registro.semi) {
+                    dados.datasets[0].data.push(registro.semi);
+                }
+                if (registro.lit) {
+                    dados.datasets[0].data.push(registro.lit);
+                }
+            }
 
         }
 
@@ -649,7 +714,7 @@ PARÁBENS! `
             document.getElementById(`myChart1`),
             config
         );
-        setTimeout(() => atualizarGrafico( dados, myChartP), 2000);
+        // setTimeout(() => atualizarGrafico( dados, myChartP));
 
     }
 
@@ -665,10 +730,19 @@ PARÁBENS! `
                     // dados.labels.shift(); // apagar o primeiro
                     // dados.labels.push(novoRegistro[0].idTipo_rp_text); // incluir um novo momento
 
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                    
+            if (novoRegistro) {
+                dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                if (novoRegistro[0] && novoRegistro[0].oneliner) {
                     dados.datasets[0].data.push(novoRegistro[0].oneliner);
+                }
+                if (novoRegistro[1] && novoRegistro[1].semi) {
                     dados.datasets[1].data.push(novoRegistro[1].semi);
+                }
+                if (novoRegistro[1] && novoRegistro[1].lit) {
                     dados.datasets[2].data.push(novoRegistro[2].lit);
+                }
+            }
 
                     myChartP.update();
                     // }
@@ -688,13 +762,6 @@ PARÁBENS! `
 
     }
 
-
-
-
-
-
-
-
     function catchGrafico() {
 
         fetch(`/medidas/persona_catch`, { cache: 'no-store' }).then(function (response) {
@@ -713,6 +780,8 @@ PARÁBENS! `
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
+
+    
 
     function plotGrafico(resposta) {
 
@@ -761,10 +830,23 @@ PARÁBENS! `
             var registro = resposta[i];
             // console.log(`DADOS DO REGISTRO ` + registro.idTipo_rp_text)
             // labels.push(registro.idTipo_rp_text);
-            dados.datasets[0].data.push(registro.oc);
-            dados.datasets[1].data.push(registro.canon);
-            dados.datasets[2].data.push(registro.au);
-            dados.datasets[3].data.push(registro.ic_oc_blogger);
+            if (registro) {
+                if (registro.oc) {
+                    dados.datasets[0].data.push(registro.oc);
+                }
+                if (registro.canon) {
+                    dados.datasets[1].data.push(registro.canon);
+                }
+                if (registro.au) {
+                    dados.datasets[2].data.push(registro.au);
+                }
+                if (registro.au){
+                    dados.datasets[3].data.push(registro.ic_oc_blogger);
+                }
+            }
+            
+            
+            
 
         }
 
@@ -777,7 +859,7 @@ PARÁBENS! `
             document.getElementById(`myChart`),
             config
         );
-        setTimeout(() => atualizarPersona( dados, myChartM), 2000);
+        // setTimeout(() => atualizarPersona( dados, myChartM), 2000);
     }
 
     function atualizarPersona(dados, myChartM) {
@@ -791,12 +873,27 @@ PARÁBENS! `
                     // tirando e colocando valores no gráfico
                     // dados.labels.shift(); // apagar o primeiro
                     // dados.labels.push(novoRegistro[0].idTipo_rp_text); // incluir um novo momento
-
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                    if (novoRegistro) {
+                dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                if (novoRegistro[0] && novoRegistro[0].oc) {
                     dados.datasets[0].data.push(novoRegistro[0].oc);
+                }
+                if (novoRegistro[1] && novoRegistro[1].canon) {
                     dados.datasets[1].data.push(novoRegistro[1].canon);
+                }
+                if (novoRegistro[1] && novoRegistro[2].au) {
                     dados.datasets[2].data.push(novoRegistro[2].au);
-                    dados.datasets[3].data.push(novoRegistro[3].ic_oc_blogger);
+                }
+                if (novoRegistro[1] && novoRegistro[3].ic_oc_blogger) {
+                    ddados.datasets[3].data.push(novoRegistro[3].ic_oc_blogger);
+                }
+            }
+
+                    // dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                    // dados.datasets[0].data.push(novoRegistro[0].oc);
+                    // dados.datasets[1].data.push(novoRegistro[1].canon);
+                    // dados.datasets[2].data.push(novoRegistro[2].au);
+                    // dados.datasets[3].data.push(novoRegistro[3].ic_oc_blogger);
 
 
                     myChartM.update();

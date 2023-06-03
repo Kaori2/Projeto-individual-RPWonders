@@ -26,6 +26,32 @@ function pontos(req, res) {
     });
 }
 
+function rateme(req, res) {
+    var idUsuario = req.params.idUsuario;
+    personagensModel.rateme(idUsuario).then(function (resultado) {
+            res.status(200).json(resultado);
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}  
+
+function done(req, res) {
+    var idUsuario = req.params.idUsuario;
+    personagensModel.pontos(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function responder(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var acertos = req.body.acertosServer;
@@ -187,5 +213,7 @@ module.exports = {
     rate,
     send_type,
     pontos,
-    listarPorUsuario
+    listarPorUsuario,
+    done,
+    rateme
 }

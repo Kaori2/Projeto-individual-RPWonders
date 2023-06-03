@@ -19,6 +19,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 0;
+    z-index: -1.5;
 }
 
 .content {
@@ -419,8 +420,12 @@ h1 {
     flex-direction: column;
     align-self: center;
     margin-bottom: 50px;
+    padding: 20px 20px;
     text-align: center;
     display: none;
+}
+.satisfy button {
+    margin-top: 10px;
 }
 
 .sts {
