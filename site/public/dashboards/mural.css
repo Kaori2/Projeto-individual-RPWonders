@@ -118,7 +118,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 3px solid goldenrod;
   padding: 20px;
 }
 
@@ -231,25 +231,10 @@ body {
 .cards h1 {
   font-size: 22px;
   width: 100%;
-  border-bottom: solid white 1px;
+  border-bottom: solid goldenrod 2px;
   text-align: left;
   font-weight: lighter;
   margin: 20px;
-}
-
-.temperatura,
-.umidade {
-  margin: 5px;
-  margin-left: 20px;
-  width: 75%;
-}
-
-.cor-alerta {
-  width: 13%;
-  height: 30%;
-  border-radius: 50px;
-  margin-top: 6%;
-  /* background-color: #c7c7c7; */
 }
 
 .btns-dash {
@@ -282,17 +267,6 @@ body {
   margin: 5px;
   border-radius: 3px;
 } */
-
-.btn-pink {
-  color: white;
-  background-color: #e6005a;
-}
-
-.btn-white {
-  color: #e6005a;
-  background-color: white;
-
-}
 
 .label-captura {
   height: 80px;

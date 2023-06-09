@@ -21,6 +21,18 @@ function showrpg() {
         rpg_dropdown.style.display = 'block'
     }
 }
+function clickcloserpg() {
+    if (show_posts == true) {
+        show_posts = false
+        rpg_dropdown.style.display = 'none'
+}
+}
+function clickclosettrpg() {
+    if (show_post == true) {
+        show_post = false
+        ttrpg_dropdown.style.display = 'none'
+}
+}
 var show_one = false
 function oneliner() {
     if (show_one == true) {

@@ -12,7 +12,7 @@ body {
 .header {
     height: 80px;
     background-color: #000000;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid goldenrod;
     align-items: center;
     background-color: rgb(0, 0, 0);
     width: 100%;
@@ -354,6 +354,7 @@ h1 {
 .chart_1 {
     width: 50%;
     height: 30%;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -362,9 +363,9 @@ h1 {
 }
 
 .chart_1 span {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     /* color: rgb(134, 133, 133); 
      color: rgb(96, 95, 95); 
      color: rgb(56, 55, 55); 
@@ -410,6 +411,7 @@ h1 {
 .satisfaction {
     width: 100%;
     height: 300px;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -453,6 +455,7 @@ h1 {
 
 footer {
     background-color: rgb(0, 0, 0);
+    border-top: 2px solid goldenrod;
     color: #ffffff;
     font-size: 14px;
     bottom: 0;

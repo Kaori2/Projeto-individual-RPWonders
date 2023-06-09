@@ -126,11 +126,12 @@ function publicar(req, res) {
 
 function editar(req, res) {
     var novaDescricao = req.body.descricao;
+    var novaNome = req.body.nomeNovo;
     var idPersonagem = req.params.idPersonagem;
 
     console.log(req.params.idPersonagem);
 
-    avisoModel.editar(novaDescricao, idPersonagem)
+    avisoModel.editar(novaDescricao, novaNome, idPersonagem)
         .then(
             function (resultado) {
                 res.json(resultado);

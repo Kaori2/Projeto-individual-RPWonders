@@ -12,7 +12,7 @@ body {
 .header {
     height: 80px;
     background-color: #000000;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid goldenrod;
     align-items: center;
     background-color: rgb(0, 0, 0);
     width: 100%;
@@ -136,7 +136,7 @@ body {
 }
 
 .container_text span {
-    font-size: 20px;
+    font-size: 21px;
     color: #ffffff;
     display: flex;
     margin-left: 80px;
@@ -159,6 +159,7 @@ a {
     align-content: center;
     width: 100%;
     height: 700px;
+    margin-top: 50px;
     margin-bottom: 100px;
 }
 
@@ -168,7 +169,6 @@ a {
     font-size: 35px;
     font-weight: 600;
     margin-bottom: 80px;
-    margin-top: 50px;
 }
 
 .row_boxes {
@@ -192,13 +192,13 @@ a {
     padding: 20px 20px 20px 20px;
 }
 
-.boxes h3 {
+.boxes h2 {
     display: flex;
     justify-content: center;
 }
 
 .boxes p {
-    font-size: 15px;
+    font-size: 21px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -215,8 +215,8 @@ a {
     background-color: transparent;
     border-color: transparent;
     font-weight: bold;
-    font-size: 20px;
-    margin-left: 470px;
+    font-size: 30px;
+    margin-left: 460px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .dropdown_one {
@@ -226,11 +226,11 @@ a {
     height: 300px;
     border: #939393 solid 2px;
     position: absolute;
-    left: 28.3%;
+    left: 27.3%;
 }
 .dropdown_one span{
-    padding: 10px 10px 10px 10px;
-    font-size: 14px;
+    padding: 60px 10px 10px 10px;
+    font-size: 22px;
     font-weight: 100;
     text-align: center;
 }
@@ -245,8 +245,8 @@ a {
     background-color: transparent;
     border-color: transparent;
     font-weight: bold;
-    font-size: 20px;
-    margin-left: 520px;
+    font-size: 30px;
+    margin-left: 510px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .dropdown_semi {
@@ -256,11 +256,11 @@ a {
     height: 400px;
     border: #939393 solid 2px;
     position: absolute;
-    left: 26.5%;
+    left: 26%;
 }
 .dropdown_semi span{
-    padding: 10px 10px 10px 10px;
-    font-size: 14px;
+    padding: 60px 10px 10px 10px;
+    font-size: 22px;
     font-weight: 100;
     text-align: center;
 }
@@ -274,28 +274,29 @@ a {
 #close3 {
     background-color: transparent;
     border-color: transparent;
+    font-size: 30px;
     font-weight: bold;
-    font-size: 20px;
-    margin-left: 570px;
+    margin-left: 900px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .dropdown_lit {
     display: none;
     background-color: rgb(255, 255, 255);
-    width: 600px;
-    height: 500px;
+    width: 950px;
+    height: 600px;
     border: #939393 solid 2px;
     position: absolute;
-    left: 24.8%;
+    left: 11.8%;
 }
 .dropdown_lit span{
-    padding: 10px 10px 10px 10px;
-    font-size: 14px;
+    padding: 0px 10px 10px 10px;
+    font-size: 22px;
     font-weight: 100;
     text-align: center;
 }
 .boxes button {
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: bold;
     background-color: transparent;
     border-color: transparent;
     display: flex;
@@ -308,6 +309,7 @@ a {
     flex-direction: row;
     justify-content: center;
     align-content: center;
+    font-size: 21px;
     width: 100%;
     height: 450px;
     justify-content: space-around;
@@ -315,6 +317,7 @@ a {
 
 .text_roleplayer {
     display: flex;
+    padding: 0px 30px 0px 80px;
     flex-direction: column;
 }
 
@@ -323,7 +326,9 @@ a {
     font-size: 25px;
     font-weight: bold;
 }
-
+.picture_roleplayer{
+    padding: 0px 80px 0px 0px;
+}
 .picture_roleplayer img {
     width: 400px;
     height: 400px;
@@ -336,6 +341,7 @@ a {
     flex-direction: row-reverse;
     justify-content: center;
     align-content: center;
+    font-size: 21px;
     width: 100%;
     height: 450px;
     justify-content: space-around;
@@ -343,6 +349,7 @@ a {
 
 .text_roleplayer2 {
     display: flex;
+    padding: 0px 80px 0px 30px;
     flex-direction: column;
     text-align: end;
 }
@@ -351,6 +358,9 @@ a {
     margin-top: 100px;
     font-size: 25px;
     font-weight: bold;
+}
+.picture_roleplayer2{
+    padding: 0px 0px 0px 80px;
 }
 
 .picture_roleplayer2 img {
@@ -362,6 +372,7 @@ a {
 
 .text_roleplayer3 {
     display: flex;
+    padding: 0px 30px 0px 80px;
     flex-direction: column;
     margin-top: 100px;
 }
@@ -373,7 +384,7 @@ a {
 
 .rpw_community {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     height: 500px;
     margin-top: 100px;
@@ -384,31 +395,28 @@ a {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .com_rpw span {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
     margin-right: 50px;
     margin-left: 50px;
 }
 .com_rpw p {
+    font-size: 21px;
     margin-right: 50px;
     margin-left: 50px;
 }
-.picture_rpw {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
 .picture_rpw img {
     display: flex;
     justify-content: center;
-    margin-top: 110px;
+    margin-top: 0px;
     width: 550px;
     height: 300px;
-    margin-right: 50px;
+    margin-left: 456px;
+    margin-bottom: 20px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
     0 10px 10px rgba(0, 0, 0, 0.22);
 }
@@ -426,13 +434,13 @@ a {
     text-align: center;
 }
 
-.boxes_pt2 h3 {
+.boxes_pt2 h1 {
     display: flex;
     justify-content: center;
 }
 
 .boxes_pt2 p {
-    font-size: 15px;
+    font-size: 20px;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -449,21 +457,21 @@ a {
 .rpw_terms span {
     display: flex;
     justify-content: center;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
 }
 
 .rpw_terms p {
     display: flex;
     justify-content: center;
-    margin: 70px;
-    font-size: 18px;
+    margin: 60px;
+    font-size: 21px;
 }
 .abbrevitions {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 750px;
+    height: 800px;
 }
 .row_boxs {
     display: flex;
@@ -476,8 +484,8 @@ a {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
         0 10px 10px rgba(0, 0, 0, 0.22);
     display: flex;
-    width: 250px;
-    height: 150px;
+    width: 300px;
+    height: 350px;
     justify-content: center;
     flex-direction: column;
     text-align: center;
@@ -485,13 +493,14 @@ a {
     margin-bottom: 20px;
 }
 
-.boxs_pt2 h3 {
+.boxs_pt2 h2 {
+    font-weight: bold;
     display: flex;
     justify-content: center;
 }
 
 .boxs_pt2 p {
-    font-size: 15px;
+    font-size: 20px;
     display: flex;
     margin-left: 10px;
     margin-right: 10px;
@@ -501,8 +510,9 @@ a {
 .rpw_phrase_banner {
     display: flex;
     justify-content: center;
+    margin-top: 500px;
     width: 100%;
-    height: 500px;
+    height: 450px;
 }
 
 .rpw_phrase {
@@ -530,6 +540,7 @@ a {
 }
 
 footer {
+    border-top: 2px solid goldenrod;
     background-color: rgb(0, 0, 0);
     color: #ffffff;
     font-size: 14px;

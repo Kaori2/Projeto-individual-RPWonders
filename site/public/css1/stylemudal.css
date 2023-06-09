@@ -12,9 +12,13 @@ body {
   margin: auto;
   display: flex;
 }
+.rows{
+  text-align: center;
+ color: #fff;
+}
 
 .header {
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 3px solid goldenrod;
 }
 
 .header .container {
@@ -166,7 +170,7 @@ button {
 
 /* FORMULARIO */
 
-.alerta_erro{
+/* .alerta_erro{
   display: flex;
   justify-content: flex-end;
 }
@@ -186,7 +190,7 @@ button {
 .card_erro #mensagem_erro{
   font-weight: 500;
   font-size: 20px;
-}
+} */
 
 .formulario .tipo_campo {
   font-size: 20px;
@@ -295,24 +299,10 @@ input {
 .hello a{
   margin-bottom: 20px;
 }
-.btn-nav {
-  width: 40%;
-  color: white;
-  background-color: #e6005a;
-  border-radius: 5px;
-  text-align: center;
-  padding: 2% 5%;
-}
 
 .btn-nav-white {
   width: 40%;
   text-align: center;
-}
-
-.btn-nav-white h3 {
-  color: #e6005a;
-  padding: 0;
-  margin: 0;
 }
 
 .btn-nav h3,

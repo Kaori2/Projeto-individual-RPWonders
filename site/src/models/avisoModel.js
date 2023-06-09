@@ -70,10 +70,10 @@ function cadastrarpersona(nomePersona, descPersona, idUsuario) {
 //     return database.executar(instrucao);
 // }
 
-function editar(novaDescricao, idPersonagem) {
+function editar(novaDescricao, novaNome, idPersonagem) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ", novaDescricao, idPersonagem);
     var instrucao = `
-        UPDATE personagem SET descPersona = '${novaDescricao}' WHERE idPersonagem = ${idPersonagem};
+        UPDATE personagem SET descPersona = '${novaDescricao}', nomePersona = '${novaNome}' WHERE idPersonagem = ${idPersonagem};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

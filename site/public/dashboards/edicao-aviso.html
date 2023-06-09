@@ -61,19 +61,9 @@
                     <h1>Editar seu personagem</h1>
                     <div class="div_form2">
                         <label>
-                            ID:
-                            <br/>
-                            <input id="input_id" style="color: rgb(196, 196, 196)"><br/><br/>
-                        </label>
-                        <label>
-                            Autor:
-                            <br/>
-                            <input id="input_nome"style="color: rgb(196, 196, 196)"><br/><br/>
-                        </label>
-                        <label>
                             Nome do personagem:
                             <br/>
-                            <input id="input_titulo"style="color: rgb(196, 196, 196)"><br/><br/>
+                            <input id="nome_persona" style="color: rgb(196, 196, 196)"><br/><br/>
                         </label>
                         <br/>
                         <label>
@@ -112,7 +102,7 @@
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     var feed = document.getElementById("feed_container");
-                    feed_container.innerHTML = "";
+        
                     // for (let i = 1; i < resposta.length; i++) {
                     //     var publicacao = resposta[i];
                         
@@ -173,6 +163,7 @@
 
     function editar() {
         var idUsuario = sessionStorage.ID_USUARIO;
+        var nomeNovo = nome_persona.value;
         var descricao = textarea_descricao.value;
         
         fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
@@ -181,7 +172,8 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                descricao: textarea_descricao.value
+                descricao: textarea_descricao.value,
+                nomeNovo: nome_persona.value
             })
         }).then(function (resposta) {
 
