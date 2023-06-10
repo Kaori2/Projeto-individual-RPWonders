@@ -60,37 +60,29 @@
             <div class="boxes">
                 <h2>One-Liner</h2>
                 <p>É uma forma comum, pois são as mais fáceis de fazer. Consiste apenas em uma frase. <br /> <br />
-                    <button onclick="oneliner()">Ver Exemplo</button>
+                    <button onclick="oneliner(), sortear1()">Ver Exemplo</button>
                 <div class="dropdown_one" id="one_dropdown">
                     <button id="close1"  onclick="clickclose1()"><b>x</b></button>
-                    <span>"Em uma cidade futurista dominada por gangues cibernéticas, um mercenário solitário busca vingança pela morte de seu parceiro."</span>
+                    <span id="mensagem1"></span>
                 </div>
                 </p>
             </div>
             <div class="boxes">
                 <h2>Semi-literate</h2>
                 <p>Semi-literatura é uma forma intermediária, nem muito curta nem muito longa em termos de roleplay virtual. Geralmente consiste em um parágrafo com poucos detalhes à disposição.<br /><br />
-                    <button onclick="semilit()">Ver Exemplo</button>
+                    <button onclick="semilit(), sortear2()">Ver Exemplo</button>
                     <div class="dropdown_semi" id="semi_dropdown">
                         <button id="close2"  onclick="clickclose2()"><b>x</b></button>
-                        <span>"O sol se põe sobre a densa floresta enquanto meu personagem, um caçador experiente, rastreia os rastros do misterioso monstro que assola a região. Com a lanterna tênue iluminando meu caminho, eu me preparo para o confronto iminente, empunhando minha fiel espada de prata."</span>
+                        <span id="mensagem2"></span>
                     </div>
                 </p>
             </div>
             <div class="boxes">
                 <h2>Literate</h2>
-                <p>A Literate é uma forma de roleplay virtual em formato de parágrafo, que enfatiza os personagens e cenários ao adicionar detalhes. Geralmente é composta por mais de um parágrafo. <br /> <br /><button onclick="literate()">Ver Exemplo</button>
+                <p>A Literate é uma forma de roleplay virtual em formato de parágrafo, que enfatiza os personagens e cenários ao adicionar detalhes. Geralmente é composta por mais de um parágrafo. <br /> <br /><button onclick="literate(), sortear3()">Ver Exemplo</button>
                     <div class="dropdown_lit" id="lit_dropdown">
                         <button id="close3"  onclick="clickclose3()"><b>x</b></button>
-                        <span>As sombras dançam ao redor dele, enquanto raios de lua filtram-se através das copas das árvores, iluminando seu caminho. O cheiro de musgo e terra úmida permeia o ar, criando uma atmosfera envolvente. Seu coração bate forte no peito, a adrenalina pulsando em suas veias. Cada som se torna amplificado, ecoando no silêncio da noite.
-
-                            Seus olhos afiados vasculham a escuridão em busca de movimentos suspeitos, preparado para reagir instantaneamente. Os sentidos aguçados captam até mesmo o mais leve sussurro do vento. Cada estalo de galho ou farfalhar de folhas o faz ficar alerta, pronto para entrar em ação.
-                            
-                            Com um passo cauteloso, ele avança mais profundamente na floresta, seguindo os vestígios de uma presença sinistra. A tensão no ar é palpável, uma sensação quase palpável de perigo iminente. A cada momento, ele se prepara para enfrentar o desconhecido, confiando em suas habilidades afiadas e coragem inabalável.
-                            
-                            Os sons da natureza parecem amplificados, cada nota musical da fauna noturna e cada assobio distante do vento se tornam parte de seu ambiente. Seus músculos estão tensos, prontos para responder a qualquer ameaça que possa surgir. Ele se funde com o ambiente, tornando-se um com a floresta proibida, um guerreiro determinado a desvendar seus segredos e superar seus desafios.
-                            
-                            Com cada passo corajoso, ele avança no desconhecido, sua espada brilhando à luz da lua. Nenhum obstáculo é grande demais, nenhum perigo é assustador demais. Seu espírito aventureiro queima intensamente, alimentando sua jornada nessa terra misteriosa.</span>
+                        <span id="mensagem3"></span>
                     </div>
                 </p>
             </div>
@@ -289,3 +281,81 @@
 </body>
 
 </html>
+<script>
+    var oneline = [`"Em uma cidade futurista dominada por gangues cibernéticas, um mercenário solitário busca vingança pela morte de seu parceiro."`,
+    `"Eu fiz uma transmissão ao vivo no Instagram outro dia e as pessoas lá foram muito gentis e acolhedoras ( ◜‿◝ )♡.
+Obrigado pelo apoio, pessoal. ♡(˃͈ દ ˂͈ ༶ )
+Aquela foi minha primeira transmissão ao vivo falando sobre o set. Espero que todos vocês continuem me apoiando."`,
+    `" ➠ Eu estava malhando quando meu telefone tocou. Eu olhei para ele e pensei: o quê? Era sobre trabalho. Hora de lidar com delinquentes e professores de novo."`
+]
+var semi = ["Nossos treinamentos começaram logo cedo pela manhã e terminaram por volta das 19h. Fiquei muito nervoso no começo. Foi realmente cansativo, pois nosso treinador não nos deixou descansar. Depois disso, tivemos outra sessão de fotos, no estilo de Haikyuu. Queriam nos entrevistar, mas nosso treinador recusou, pois estávamos todos cansados. Não pude transmitir ao vivo porque estou ocupado com os treinamentos, mas vou tentar na próxima semana.", 
+"O sol se põe sobre a densa floresta enquanto meu personagem, um caçador experiente, rastreia os rastros do misterioso monstro que assola a região. Com a lanterna tênue iluminando meu caminho, eu me preparo para o confronto iminente, empunhando minha fiel espada de prata.",
+`"Ele deixou sua espada cair enquanto seus joelhos tocavam o chão. Um cheiro de sangue impregnava o ar, o local estava coberto por bilhões de corpos mortos.
+O campo de batalha onde os humanos lutaram contra o exército do rei demônio.
+Knecht se deitou no chão, coberto de sangue. Pois ele já havia tido o bastante. Knecht, feche os olhos.
+O herói Knecht, que havia lutado milhões de batalhas para salvar o mundo do domínio do rei demônio.
+Finalmente salvou o mundo da crueldade do rei demônio." `
+]
+var lit =[`As sombras dançam ao redor dele, enquanto raios de lua filtram-se através das copas das árvores, iluminando seu caminho. O cheiro de musgo e terra úmida permeia o ar, criando uma atmosfera envolvente. Seu coração bate forte no peito, a adrenalina pulsando em suas veias. Cada som se torna amplificado, ecoando no silêncio da noite.
+
+Seus olhos afiados vasculham a escuridão em busca de movimentos suspeitos, preparado para reagir instantaneamente. Os sentidos aguçados captam até mesmo o mais leve sussurro do vento. Cada estalo de galho ou farfalhar de folhas o faz ficar alerta, pronto para entrar em ação.
+
+Com um passo cauteloso, ele avança mais profundamente na floresta, seguindo os vestígios de uma presença sinistra. A tensão no ar é palpável, uma sensação quase palpável de perigo iminente. A cada momento, ele se prepara para enfrentar o desconhecido, confiando em suas habilidades afiadas e coragem inabalável.
+
+Os sons da natureza parecem amplificados, cada nota musical da fauna noturna e cada assobio distante do vento se tornam parte de seu ambiente. Seus músculos estão tensos, prontos para responder a qualquer ameaça que possa surgir. Ele se funde com o ambiente, tornando-se um com a floresta proibida, um guerreiro determinado a desvendar seus segredos e superar seus desafios.
+
+Com cada passo corajoso, ele avança no desconhecido, sua espada brilhando à luz da lua. Nenhum obstáculo é grande demais, nenhum perigo é assustador demais. Seu espírito aventureiro queima intensamente, alimentando sua jornada nessa terra misteriosa.`, 
+`Há muito tempo, de outra dimensão, havia um famoso bibliotecário e contador de histórias chamado narrador, mas ele também era conhecido como "O NARRADOR".
+Seus livros eram extraordinários, diferentes de qualquer outro livro. Seus livros eram mágicos, cheios de mistérios e segredos obscuros. Um dia, um ladrão mágico entrou em sua biblioteca para roubar um grimório, mas o narrador não estava lá naquele momento. O ladrão mágico aproveitou a oportunidade. Ele percorreu a biblioteca do narrador e um livro em particular chamou sua atenção. Era um livro antigo, estava trancado e protegido por uma barreira mágica. Um sorriso se estampou em seu rosto, pois ele pensou que havia algo grandioso sobre o livro, já que estava bem protegido. Mal sabia ele que o livro era na verdade uma armadilha, um livro cheio de criaturas sombrias e malignas que não deveriam ser libertadas ou causariam o caos.
+Ele estava bem preparado para isso, então ele fez seu trabalho e, felizmente, conseguiu quebrar a barreira mágica. Tudo o que restava era a fechadura, ele procurou a chave em todos os lugares e finalmente a encontrou! A chave que mudaria sua vida para sempre, ele pensou em seus pensamentos.
+Ele então abriu, um som de clique veio da fechadura. A sala inteira ficou em silêncio por um momento, ele abriu lentamente o livro.
+Uma chama negra irrompeu do livro e engoliu o ladrão mágico vivo.
+As criaturas dentro do livro acidentalmente foram para um dos portais de dimensão do narrador, o portal estava indo para a floresta da insanidade.
+O narrador então voltou após sua longa viagem, ao retornar ele percebeu a bagunça em sua biblioteca e o livro estava desaparecido. Ele rosnou como se já soubesse o que aconteceu. Então ele convocou os quatro heróis de diferentes dimensões para ajudá-lo a trazer de volta as criaturas de seu livro.`,
+`
+Seus olhos se fixaram no espelho, testemunhando um reflexo distorcido de si mesmo. Lentamente, ele tocou o rosto com as mãos. "Quem sou eu?", ecoou em sua mente, enquanto as sombras o envolviam.
+
+A voz sussurrou suavemente: "Agora você é Echo, não mais um estranho na trama. Sinta-se leve e feliz." Ele sentia-se como um fantoche nas mãos da humanidade, sendo puxado em todas as direções.
+
+"Você é Echo agora, não mais um estranho na história. Viva sua vida e seja feliz." As palavras foram ditas enquanto ele se sentava no chão, como se tivesse perdido seu corpo, sua alma obscurecida pelo que sentia.
+
+[ • • • ]
+
+Echo abriu lentamente os olhos, o mundo suspirando acima das estrelas mais escuras, iluminado por sua própria alma perdida.
+
+Ele sentia-se envolvido pela escuridão ao seu redor, afundando em um abismo cada vez mais profundo, enquanto sua mente era puxada para baixo. "Isso foi um sonho, não foi?", sussurrou para si mesmo.
+
+Sentiu-se dissipando enquanto observava seu corpo desmoronar, perdendo sua essência à medida que se tornava um eco vazio dentro do poço escuro da alma.
+
+"Você é Echo agora, não mais um estranho na história. Viva sua vida e seja feliz." Ele repetiu para si mesmo enquanto desaparecia.`]
+    function sortear1() {
+        var limite = oneline.length - 1;
+        var min = 0;
+        var max = limite;
+        var intervalo = max - min;
+        var aleatotio = (Math.random() * intervalo) + min;
+        var formatado = aleatotio.toFixed()
+        mensagem1.innerHTML = `${oneline[formatado]}`
+    
+    }
+    function sortear2() {
+        var limite2 = semi.length - 1;
+        var min = 0;
+        var max = limite2;
+        var intervalo = max - min;
+        var aleatotio = (Math.random() * intervalo) + min;
+        var formatado = aleatotio.toFixed()
+        mensagem2.innerHTML = `${semi[formatado]}`
+    
+    }
+    function sortear3() {
+        var limite = lit.length - 1;
+        var min = 0;
+        var max = limite;
+        var intervalo = max - min;
+        var aleatotio = (Math.random() * intervalo) + min;
+        var formatado = aleatotio.toFixed()
+        mensagem3.innerHTML = `${lit[formatado]}`
+    
+    }
+</script>

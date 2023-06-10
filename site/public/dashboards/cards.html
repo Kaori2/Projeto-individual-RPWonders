@@ -84,7 +84,7 @@
                 </div>
            
             </div> 
-            <p class="rows">Suas ultimas 7th tentativas</p>
+            <p class="rows">Suas ultimas 6th tentativas</p>
 </body>
 
 <script>
@@ -105,12 +105,12 @@
                     }
 
                     resposta.json().then(function (resposta) {
-                        var answer = JSON.stringify(resposta[0][`sum(qtdAcertos)`])
+                        // var answer = JSON.stringify(resposta[0][`sum(qtdAcertos)`])
                         console.log("Dados recebidos: ", JSON.stringify(resposta[0]["sum(qtdAcertos)"]));
-                        if (answer == 'null'){
-                            answer = 0
-                        }
-                        points.innerHTML = `Você têm ` + answer + ` pontos`;
+                        // if (answer == 'null'){
+                        //     answer = 0
+                        // }
+                        points.innerHTML = `Você têm ` + (resposta[0]["sum(qtdAcertos)"]) + ` pontos`;
                     });
                 } else {
                     throw ('Houve um erro na API!');
