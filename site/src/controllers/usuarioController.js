@@ -133,7 +133,7 @@ function nivelamento(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        console.log("Houve um erro ao buscar o nivel: ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
