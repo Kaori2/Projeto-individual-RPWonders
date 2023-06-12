@@ -240,7 +240,7 @@
 
                     var feed = document.getElementById("feed_container");
                     feed_container.innerHTML = "";
-                    for (let i = 1; i < resposta.length; i++) {
+                    for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
                         
                         // criando e manipulando elementos do HTML via JavaScript
@@ -255,7 +255,7 @@
                         var btnDeletar = document.createElement("button");
 
 
-                        spanID.innerHTML = "Personagem <b>" + i + "</b>";
+                        spanID.innerHTML = "Personagem <b>" + (i+1) + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + sessionStorage.NOME_USUARIO + "</b>";
                         spanTitulo.innerHTML = "Nome: <b>" + publicacao.nomePersona + "</b>";
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descPersona + "</b>";
