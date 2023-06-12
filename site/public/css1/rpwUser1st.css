@@ -272,7 +272,12 @@ a {
     width: 500px;
     font-weight: 500;
 }
-
+.rpg_dropdown{
+    margin-bottom: 10px;
+    display: none;
+    width: auto;
+    height: auto;
+}
 .container_text_banner span {
     margin-left: 80px;
     font-size: 45px;

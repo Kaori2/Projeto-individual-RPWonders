@@ -37,11 +37,8 @@
                 <input placeholder="Email social" id="email_input" />
                 <input type="password" placeholder="Senha" id="senha_input" />
                 <input type="password" placeholder="Confirmação de senha" id="confirmacao_senha_input" />
-                <div id="aguardar"></div>
-                <div id="cardErro">
-                    <p id="mensagem_erro"></p>
+                <div class="rpg_dropdown" id="dropdown_erro">
                 </div>
-                <div id="div_aguardar"></div>
                 <button class="stylist" onclick="cadastrar()">Cadastrar</button>
             </div>
         </div>
@@ -52,12 +49,8 @@
                 </div>
                 <input type="email" placeholder="Email social" id="email_input_login" />
                 <input type="password" placeholder="Senha" id="senha_input_login" />
-                <a href="#">Esqueceu sua senha?</a>
-                <div id="aguardar"></div>
-                <div id="cardErro">
-                    <p id="mensagem_erro"></p>
+                <div class="rpg_dropdown" id="dropdown_erro2">
                 </div>
-                <div id="div_aguardar"></div>
                 <button class="stylist" onclick="entrar()">Login</button>
             </div>
         </div>
@@ -103,35 +96,36 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var senhaConfirmaVar = confirmacao_senha_input.value
-
-
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || senhaConfirmaVar == "" ) {
-            // cardErro.style.display = "block"
-            alert(`Mensagem de erro para todos os campos em branco`)
-            // mensagem_erro.innerHTML = `<span style="color: red;">Mensagem de erro para todos os campos em branco</span>`;
+            dropdown_erro.style.display = 'block'
+            // alert(`Mensagem de erro para todos os campos em branco`)
+            dropdown_erro.innerHTML = `<span style="color: red;">Têm campos está em branco</span>`;
 
             finalizarAguardar();
             return false;
         }
         else if (senhaConfirmaVar != senhaVar) {
-            // cardErro.style.display = "block"
-            alert(`Senha Incorreta`)
+            dropdown_erro.style.display = 'block'
+            // alert(`Senha Incorreta`)
+            dropdown_erro.innerHTML = `<span style="color: red;">Senha Incorreta</span>`;
             // mensagem_erro.innerHTML = `<span style="color: red;">Senha Incorreta</span> `;
             finalizarAguardar();
             return false;
         }
         else if (emailVar.indexOf('@') < 0 || emailVar.indexOf('.com') < 0) {
+            dropdown_erro.style.display = 'block'
             // cardErro.style.display = "block"
-            alert(`Email inválido`)
+            // alert(`Email inválido`)
+            dropdown_erro.innerHTML = `<span style="color: red;">Email inválido</span>`;
             // mensagem_erro.innerHTML = `<span style="color: red;">Email inválido</span>`;
             finalizarAguardar();
             return false;
         }
         else if (senhaVar.length < 6 || senhaVar.indexOf('@') == -1 && senhaVar.indexOf('#') == -1 && senhaVar.indexOf('!') == -1 && senhaVar.indexOf('$') == -1 && senhaVar.indexOf('%') == -1 && senhaVar.indexOf('&') == -1 && senhaVar.indexOf('*') == -1) {
        
-            // cardErro.style.display = "block"
-            alert(`Senha Fraca`)
-            // mensagem_erro.innerHTML = `<span style="color: red;">Senha Fraca</span>`;
+            dropdown_erro.style.display = 'block'
+            
+            dropdown_erro.innerHTML = `<span style="color: red;">Senha Fraca</span>`;
             finalizarAguardar();
             return false;}
         else {
@@ -160,15 +154,18 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
+                dropdown_erro.style.display = 'block'
+               dropdown_erro.innerHTML = `<span style="color: green;">Cadastro realizado com sucesso! Redirecionando para tela de Login...</span>`;
                 // cardErro.style.display = "block";
-                alert( `Cadastro realizado com sucesso! Redirecionando para tela de Login...`)
+                // alert( `Cadastro realizado com sucesso! Redirecionando para tela de Login...`)
                 // mensagem_erro.innerHTML = `<span style="color: green;">Cadastro realizado com sucesso! Redirecionando para tela de Login...</span>`;
-                login()
+                // login()
 
-                // setTimeout(() => {
-                //     // window.location = "login.html";
-                //     transição()
-                // }, "2000")
+                setTimeout(() => {
+                    // window.location = "login.html";
+                    // transição()
+                    login()
+                }, "2000")
 
                 // limparFormulario();
                 // finalizarAguardar();
@@ -216,15 +213,13 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                // cardErro.style.display = "block";
-                alert( `Login realizado com sucesso! Redirecionando para Homepage...`)
-                // mensagem_erro.innerHTML = `<span style="color: green;">Cadastro realizado com sucesso! Redirecionando para tela de Login...</span>`;
-                login()
-
-                // setTimeout(() => {
-                //     // window.location = "login.html";
-                //     transição()
-                // }, "2000")
+                dropdown_erro2.style.display = 'block'
+            dropdown_erro2.innerHTML = `<span style="color: green;">Login realizado com sucesso! Redirecionando para Homepage...</span>`;
+                
+                setTimeout(() => {
+                    // window.location = "login.html";
+                    login()
+                }, "2000")
 
                 // limparFormulario();
                 // finalizarAguardar();
@@ -248,10 +243,8 @@
         
 
         if (emailVar == "" || senhaVar == "") {
-            // cardErro.style.display = "block"
-            alert(`Mensagem de erro para todos os campos em branco`)
-            // mensagem_erro.innerHTML = `<span style="color: red;">Mensagem de erro para todos os campos em branco</span>`;
-            // finalizarAguardar();
+            dropdown_erro2.style.display = 'block'
+            dropdown_erro2.innerHTML = `<span style="color: red;">Têm campos está em branco</span>`;
             return false;
         }
         else {
@@ -302,7 +295,8 @@
             } else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
-
+                dropdown_erro2.style.display = 'block'
+                dropdown_erro2.innerHTML = `<span style="color: red;">Verifique se o email e senha está correta</span>`;
                 resposta.text().then(texto => {
                     console.error(texto);
                     // finalizarAguardar(texto);
