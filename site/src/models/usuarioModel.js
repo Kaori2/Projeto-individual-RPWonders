@@ -26,6 +26,14 @@ function nivelamento(idUsuario) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+// function findingLev(idUsuario) {
+//     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function findingLev()");
+//     var instrucao = `
+//     select nivel from usuario where idUsuario = ${idUsuario};
+//     `;
+//     console.log("Executando a instrução SQL: \n" + instrucao);
+//     return database.executar(instrucao);
+// }
 
 function level(nivel, idUsuario) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function level(): ", nivel, idUsuario);
@@ -54,5 +62,6 @@ module.exports = {
     cadastrar,
     listar,
     level,
+    findingLev,
     nivelamento
 };

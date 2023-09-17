@@ -25,4 +25,8 @@ router.get("/nivelamento/:idUsuario", function (req, res) {
     // função a ser chamada quando acessar /carros/listar
     usuarioController.nivelamento(req, res);
 });
+// router.get("/findingLev/:idUsuario", function (req, res) {
+//     // função a ser chamada quando acessar /carros/listar
+//     usuarioController.findingLev(req, res);
+// });
 module.exports = router;

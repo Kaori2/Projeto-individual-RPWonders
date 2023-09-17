@@ -137,6 +137,20 @@ function nivelamento(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+// function findingLev(req, res) {
+//     var idUsuario = req.params.idUsuario;
+//     usuarioModel.findingLev(idUsuario).then(function (resultado) {
+//         if (resultado.length > 0) {
+//             res.status(200).json(resultado);
+//         } else {
+//             res.status(204).send("Nenhum resultado encontrado!")
+//         }
+//     }).catch(function (erro) {
+//         console.log(erro);
+//         console.log("Houve um erro ao buscar o nivel: ", erro.sqlMessage);
+//         res.status(500).json(erro.sqlMessage);
+//     });
+// }
 // function cadastrarpersona(req, res) {
 //     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 //     var nomepersona = req.body.nomePersonaServer;
@@ -176,5 +190,6 @@ module.exports = {
     listar,
     testar,
     level,
+    findingLev,
     nivelamento
 }

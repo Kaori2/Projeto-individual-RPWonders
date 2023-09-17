@@ -48,7 +48,7 @@ body {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    width: fit-content;
+    width: auto;
     margin-top: 5px;
     border-radius: none;
 
@@ -108,6 +108,43 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+/* .popUp {
+    background-color: none;
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    margin-top: 130px;
+}
+
+#popUp_1 {
+    /* display: none; */
+    /* border-radius: 20px;
+    width: 500px;
+    height: 300px;
+    background-color: rgb(255, 255, 255);
+}
+
+.popUp_button {
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: 450px;
+    cursor:pointer;
+}
+
+.popUp_style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 30px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+} */ 
 
 .banner {
     background-image: url(../assets/imgs/Screenshot\ 2023-05-05\ 095057.png);
@@ -176,6 +213,7 @@ a {
     justify-content: space-evenly;
     align-content: center;
 }
+
 .boxes {
     background-color: #ffffff;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
@@ -184,6 +222,7 @@ a {
     height: 300px;
     flex-direction: column;
 }
+
 .boxes button {
     background-color: transparent;
     border: none;
@@ -198,6 +237,7 @@ a {
     font-size: 18px;
     text-align: center;
 }
+
 .boxes img {
     margin-left: 36%;
     width: 100px;
@@ -213,11 +253,13 @@ a {
 .boxes p {
     font-size: 30px;
 }
+
 .boxes a {
     margin-left: 38%;
     font-size: 15px;
     color: #000000;
 }
+
 #p1 {
     margin-left: 40%;
     margin-bottom: 20px;
@@ -230,11 +272,12 @@ a {
 #p3 {
     margin-left: 34%;
 }
+
 .dropdown_rpg {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    width: fit-content;
+    width: auto;
     border-radius: none;
     position: absolute;
     top: 108%;
@@ -243,6 +286,7 @@ a {
     flex-direction: row;
 
 }
+
 .dropdown_rpg {
     position: relative;
     display: inline-block;
@@ -250,6 +294,7 @@ a {
     width: 50px;
     z-index: 0;
 }
+
 #closerpg {
     background-color: transparent;
     border-color: transparent;
@@ -261,6 +306,7 @@ a {
     margin-bottom: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .dropdown_rpg {
     display: none;
     background-color: rgb(255, 255, 255);
@@ -272,6 +318,7 @@ a {
     position: absolute;
     left: 26.5%;
 }
+
 .dropdown_rpg span {
     margin-top: 10px;
 }
@@ -280,7 +327,7 @@ a {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    width: fit-content;
+    width: auto;
     border-radius: none;
     position: absolute;
     top: 108%;
@@ -289,6 +336,7 @@ a {
     flex-direction: row;
 
 }
+
 .dropdown_ttrpg {
     position: relative;
     display: inline-block;
@@ -296,6 +344,7 @@ a {
     width: 50px;
     z-index: 0;
 }
+
 #closettrpg {
     background-color: transparent;
     border-color: transparent;
@@ -304,6 +353,7 @@ a {
     margin-left: 432px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .dropdown_ttrpg {
     display: none;
     background-color: rgb(255, 255, 255);
@@ -317,7 +367,7 @@ a {
 }
 
 /* FIM dropdown*/
-.roleplayer{
+.roleplayer {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -326,40 +376,46 @@ a {
     height: 440px;
     justify-content: space-around;
 }
-.text_roleplayer{
+
+.text_roleplayer {
     font-size: 21px;
     padding: 30px 35px;
     display: flex;
     flex-direction: column;
 }
-.text_roleplayer span{
+
+.text_roleplayer span {
     margin-top: 55px;
     font-size: 30px;
     text-align: left;
     font-weight: bold;
 }
-.picture_roleplayer img{
+
+.picture_roleplayer img {
     width: 500px;
     margin-top: 60px;
-    margin-right:40px;
-    height:300px;
+    margin-right: 40px;
+    height: 300px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
         0 10px 10px rgba(0, 0, 0, 0.22);
 }
-.rp_good{
+
+.rp_good {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     height: 700px;
-} 
+}
+
 .rp_good span {
     font-size: 30px;
     font-weight: bold;
     margin-left: 450px;
     margin-bottom: 50px;
 }
-.rp_good_text{
+
+.rp_good_text {
     background-color: #ffffff;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
         0 10px 10px rgba(0, 0, 0, 0.22);
@@ -371,6 +427,7 @@ a {
     align-content: center;
     margin-left: 165px;
 }
+
 .rp_img_good {
     display: flex;
     flex-direction: row;
@@ -378,27 +435,32 @@ a {
     align-content: center;
     text-align: center;
 }
-.rp_img_good p{
+
+.rp_img_good p {
     margin-left: 10px;
     margin-right: 20px;
     font-size: 21px;
     margin-top: 40px;
 }
-.rp_img_good img{
+
+.rp_img_good img {
     width: 500px;
     height: 300px;
     margin-right: 20px;
 }
-.references{
+
+.references {
     width: 100%;
     margin-top: 40px;
     height: 360px;
 }
+
 .references span {
     font-size: 20px;
-   margin-left: 100px;
+    margin-left: 100px;
 }
-.references p{
+
+.references p {
     font-size: 18px;
     margin-left: 100px;
 }

@@ -27,6 +27,7 @@ function clickcloserpg() {
         rpg_dropdown.style.display = 'none'
 }
 }
+
 function clickclosettrpg() {
     if (show_post == true) {
         show_post = false
