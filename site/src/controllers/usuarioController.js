@@ -1,6 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
 
-var sessoes = [];
 
 function testar(req, res) {
     console.log("ENTRAMOS NA usuarioController");
@@ -190,6 +189,5 @@ module.exports = {
     listar,
     testar,
     level,
-    findingLev,
     nivelamento
 }

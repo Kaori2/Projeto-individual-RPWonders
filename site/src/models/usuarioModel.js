@@ -62,6 +62,5 @@ module.exports = {
     cadastrar,
     listar,
     level,
-    findingLev,
     nivelamento
 };
